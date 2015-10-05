@@ -1,9 +1,11 @@
-package com.example.guanqing.solblackjack;
+package com.example.guanqing.solblackjack.Main;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.guanqing.solblackjack.R;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -16,7 +18,6 @@ public class MainActivity extends ActionBarActivity {
             getSupportActionBar().hide();
         }
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -36,7 +37,6 @@ public class MainActivity extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }
