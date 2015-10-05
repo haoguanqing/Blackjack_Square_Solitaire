@@ -13,6 +13,9 @@ public class GameActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        if (getSupportActionBar()!=null){
+            getSupportActionBar().hide();
+        }
     }
 
 
@@ -36,5 +39,11 @@ public class GameActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        //TODO: pop out a message asking user whether he/she wants to discard current game
     }
 }
