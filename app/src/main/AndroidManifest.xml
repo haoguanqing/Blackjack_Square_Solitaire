@@ -24,6 +24,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Main.MainActivity" />
         </activity>
+        <activity
+            android:name=".Game.GameActivity"
+            android:label="@string/title_activity_game"
+            android:parentActivityName=".Main.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.guanqing.solblackjack.Main.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

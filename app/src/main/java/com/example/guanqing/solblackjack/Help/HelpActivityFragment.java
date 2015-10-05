@@ -1,7 +1,7 @@
 package com.example.guanqing.solblackjack.Help;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,7 +13,7 @@ import com.example.guanqing.solblackjack.R;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class HelpActivityFragment extends Fragment {
+public class HelpActivityFragment extends DialogFragment {
     private static final String TEXT_KEY = "TEXT KEY";
     private ViewPager mPager;
 
@@ -26,7 +26,8 @@ public class HelpActivityFragment extends Fragment {
         Log.e("HGQ_DEBUG", "help activity fragment on create view");
         View rootView =  inflater.inflate(R.layout.fragment_help, container, false);
         mPager = (ViewPager) rootView.findViewById(R.id.pager);
-        mPager.setAdapter(new HelpPagerAdapter(getFragmentManager()));
+        HelpPagerAdapter mAdapter = new HelpPagerAdapter(getFragmentManager());
+        mPager.setAdapter(mAdapter);
         mPager.setPageTransformer(true, new ZoomOutPageTransformer());
         return rootView;
     }

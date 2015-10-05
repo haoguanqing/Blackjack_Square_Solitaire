@@ -10,7 +10,7 @@
         Build multiple Blackjack hands to score as many points as possible.<br /><br />
         <i><b>THE DEAL</b></i><br />
         &#09The table starts the game empty. The Stock flips over one card.<br /><br />
-        <i><b>Stock</b></i><br />
+        <i><b>STOCK</b></i><br />
         The face up card near the Stock must be played to a place in the Blackjack hands or a Discard Pile.
         As each card is played, the Stock will automatically flip another card.<br />
         ]]>
@@ -46,12 +46,13 @@
 
     <string name="help_text3">
         <![CDATA[<br /><br />
-        <i><b>Blackjack Square Solitaire Game Notes</b></i><br /><br />
+        <i><b>ABOUT</b></i><br /><br />
         Blackjack Square is a SoliTaire! Network original created by Warren Schwader.<br />
         <br />
         The author Guanqing Hao created this application based on the Blackjack Square game rules.
         Should you find any bug, please feel free to contact Guanqing at besttth6@gmail.com.
         ]]>
     </string>
+    <string name="title_activity_game">GameActivity</string>
 
 </resources>
