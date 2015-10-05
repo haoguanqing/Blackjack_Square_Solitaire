@@ -1,2 +1,11 @@
 # Blackjack_Square_Solitaire
-Blackjack Square Solitaire Game
+
+*Authour: Guanqing Hao*
+
+------------------------------
+
+This game follows the basic rules of the Blackjack Square Solitaire game. A simple online version of the game can be found here:
+
+http://www.solitairenetwork.com/Solitaire/blackjack-square-solitaire-game.html
+
+
