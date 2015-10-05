@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color1">#845A6D</color>
+    <color name="color2">#55828B</color>
+    <color name="color3">#3B6064</color>
+    <color name="color4">#364958</color>
+    <color name="help_text_color">#EAEAEA</color>
+
+    <color name="actionbar_color">#30000000</color>
+
+    <color name="red">#ffff0000</color>
+
+</resources>

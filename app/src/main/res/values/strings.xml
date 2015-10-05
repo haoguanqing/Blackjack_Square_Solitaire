@@ -2,4 +2,56 @@
     <string name="app_name">SolBlackjack</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_help">Help</string>
+
+    <string name="help_text0">
+        <![CDATA[<br /><br />
+        <i><b>GOAL</b></i><br />
+        &#09Build multiple Blackjack hands to score as many points as possible.<br /><br />
+        <i><b>THE DEAL</b></i><br />
+        &#09The table starts the game empty. The Stock flips over one card.<br /><br />
+        <i><b>Stock</b></i><br />
+        &#09The face up card near the Stock must be played to a place in the Blackjack hands or a Discard Pile.
+        As each card is played, the Stock will automatically flip another card.
+        ]]>
+        </string>
+
+    <string name="help_text1">
+        <![CDATA[<br /><br />
+        <i><b>LAYOUT</b></i><br />
+        &#09The 16 spaces may hold one card each. The spaces form nine hands of from 2 to 5 cards each depending on the position of the spaces.
+        There are two hands of 2 cards, two hands of 3 cards, three hands of 4 cards, and two hands of 5 cards.<br /><br />
+        <i><b>DISCARDS</b></i><br />
+        &#09There are four spaces where cards may be placed that are not wanted in the Blackjack hands. Each space may hold one card.<br /><br />
+        ]]>
+    </string>
+
+    <string name="help_text2">
+        <![CDATA[<br /><br />
+        <i><b>SCORING</b></i><br />
+        Scoring for the various Blackjack hands is based on how close the player comes to 21 in each hand. Face cards count as 10. Aces can count as either 1 or 11.<br /><br />
+        Each of the nine hands are scored as follows:<br />
+
+        10 Points: Blackjack! A Blackjack is two cards that total 21. A King, Queen, Jack, or 10 combined with an Ace<br />
+        7 Points : All cards in hand that total 21<br />
+        5 Points : Total 20<br />
+        4 Points : Total 19<br />
+        3 Points : Total 18<br />
+        2 Points : Total 17<br />
+        1 Point  : Total 16 or less<br />
+        0 Point  : Bust! Total 22 or more<br /><br />
+        The scores from all nine hands are added together to arrive at the final score.<br />
+        ]]>
+    </string>
+
+    <string name="help_text3">
+        <![CDATA[<br /><br />
+        <i><b>Blackjack Square Solitaire Game Notes</b></i><br /><br />
+        Blackjack Square is a SoliTaire! Network original created by Warren Schwader.<br />
+        <br />
+        The author Guanqing Hao created this application based on the Blackjack Square game rules.
+        Should you find any bug, please feel free to contact Guanqing at besttth6@gmail.com.
+        ]]>
+    </string>
+
 </resources>

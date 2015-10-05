@@ -16,6 +16,14 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        productFlavors {
+            free {
+                applicationId "com.example.guanqing.solblackjack.free"
+            }
+            paid {
+                applicationId "com.example.guanqing.solblackjack.paid"
+            }
+        }
     }
 }
 
