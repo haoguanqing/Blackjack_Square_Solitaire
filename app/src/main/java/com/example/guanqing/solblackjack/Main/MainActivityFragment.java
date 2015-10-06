@@ -40,12 +40,11 @@ public class MainActivityFragment extends Fragment {
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
                     imageView.setImageResource(R.drawable.title_pressed);
-                    Log.e("HGQ_DEBUG", "action down");
+                    return true;
                 }
                 else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
                     imageView.setImageResource(R.drawable.title2);
-                    Log.e("HGQ_DEBUG", "action up");
-
+                    return true;
                 }
                 return false;
             }
@@ -54,11 +53,6 @@ public class MainActivityFragment extends Fragment {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*GameActivityFragment fragment = new GameActivityFragment();
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.container, fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();*/
                 Intent intent = new Intent(getActivity(), GameActivity.class);
                 startActivity(intent);
             }
