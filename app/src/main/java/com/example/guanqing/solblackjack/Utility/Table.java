@@ -1,7 +1,5 @@
 package com.example.guanqing.solblackjack.Utility;
 
-import com.example.guanqing.solblackjack.Utility.Card;
-
 /**
  * Created by Guanqing on 2015/10/5.
  */
@@ -47,6 +45,9 @@ public class Table {
     private int scoreRow(Card[] row){
         int sum = 0;
         for (Card card: row){
+            if(card==null){
+                return 0;
+            }
             sum += card.getValue();
         }
         //score the Aces

@@ -1,0 +1,277 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_vertical_margin"
+    android:background="@drawable/table_background_normal1"
+    tools:context="com.example.guanqing.solblackjack.Game.GameActivityFragment">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left">
+
+            <ImageView
+                android:layout_width="@dimen/card_width"
+                android:layout_height="@dimen/card_height"
+                android:padding="@dimen/fragment_inner_padding"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/deck_imageView"
+                android:src="@drawable/c2h" />
+
+            <ImageView
+                android:layout_width="@dimen/card_width"
+                android:layout_height="@dimen/card_height"
+                android:id="@+id/deal_imageView"
+                android:padding="@dimen/fragment_inner_padding"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/c13s" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="22sp"
+                    android:text="Discards"
+                    android:id="@+id/discards_textView"
+                    android:textStyle="bold|italic" />
+
+                <GridLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:columnCount="4"
+                    android:rowCount="1">
+
+                    <ImageView
+                        android:layout_width="@dimen/card_width"
+                        android:layout_height="@dimen/card_height"
+                        android:layout_row="0"
+                        android:layout_column="0"
+                        android:padding="@dimen/fragment_inner_padding"
+                        android:id="@+id/discard1"
+                        android:src="@drawable/c1c"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/card_width"
+                        android:layout_height="@dimen/card_height"
+                        android:layout_row="0"
+                        android:layout_column="1"
+                        android:padding="@dimen/fragment_inner_padding"
+                        android:id="@+id/discard2"
+                        android:src="@drawable/c2d"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/card_width"
+                        android:layout_height="@dimen/card_height"
+                        android:layout_row="0"
+                        android:layout_column="2"
+                        android:padding="@dimen/fragment_inner_padding"
+                        android:id="@+id/discard3"
+                        android:src="@drawable/c3s"
+                        />
+
+                    <ImageView
+                        android:layout_width="@dimen/card_width"
+                        android:layout_height="@dimen/card_height"
+                        android:layout_row="0"
+                        android:layout_column="3"
+                        android:padding="@dimen/fragment_inner_padding"
+                        android:id="@+id/discard4"
+                        android:src="@drawable/c4h"
+                        />
+
+                </GridLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:rowCount="4"
+        android:columnCount="5">
+
+        <ImageView
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:padding="@dimen/fragment_inner_padding"
+            android:id="@+id/hand1"
+            android:src="@drawable/c1h"
+            />
+        <ImageView
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:padding="@dimen/fragment_inner_padding"
+            android:id="@+id/hand2"
+            android:src="@drawable/c2h"
+            />
+        <ImageView
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:padding="@dimen/fragment_inner_padding"
+            android:id="@+id/hand3"
+            android:src="@drawable/c3h"
+            />
+        <ImageView
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_row="0"
+            android:layout_column="3"
+            android:padding="@dimen/fragment_inner_padding"
+            android:id="@+id/hand4"
+            android:src="@drawable/c4h"
+            />
+        <ImageView
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_row="0"
+            android:layout_column="4"
+            android:padding="@dimen/fragment_inner_padding"
+            android:id="@+id/hand5"
+            android:src="@drawable/c5h"
+            />
+        <ImageView
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:padding="@dimen/fragment_inner_padding"
+            android:id="@+id/hand6"
+            android:src="@drawable/c6h"
+            />
+        <ImageView
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:padding="@dimen/fragment_inner_padding"
+            android:id="@+id/hand7"
+            android:src="@drawable/c7h"
+            />
+        <ImageView
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:padding="@dimen/fragment_inner_padding"
+            android:id="@+id/hand8"
+            android:src="@drawable/c8h"
+            />
+        <ImageView
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_row="1"
+            android:layout_column="3"
+            android:padding="@dimen/fragment_inner_padding"
+            android:id="@+id/hand9"
+            android:src="@drawable/c9h"
+            />
+        <ImageView
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_row="1"
+            android:layout_column="4"
+            android:padding="@dimen/fragment_inner_padding"
+            android:id="@+id/hand10"
+            android:src="@drawable/c10h"
+            />
+        <ImageView
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:padding="@dimen/fragment_inner_padding"
+            android:id="@+id/hand11"
+            android:src="@drawable/c11h"
+            />
+        <ImageView
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:padding="@dimen/fragment_inner_padding"
+            android:id="@+id/hand12"
+            android:src="@drawable/c12h"
+            />
+        <ImageView
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_row="2"
+            android:layout_column="3"
+            android:padding="@dimen/fragment_inner_padding"
+            android:id="@+id/hand13"
+            android:src="@drawable/c13h"
+            />
+        <ImageView
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:padding="@dimen/fragment_inner_padding"
+            android:id="@+id/hand14"
+            android:src="@drawable/c1s"
+            />
+        <ImageView
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_row="3"
+            android:layout_column="2"
+            android:padding="@dimen/fragment_inner_padding"
+            android:id="@+id/hand15"
+            android:src="@drawable/c2s"
+            />
+        <ImageView
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_row="3"
+            android:layout_column="3"
+            android:padding="@dimen/fragment_inner_padding"
+            android:id="@+id/hand16"
+            android:src="@drawable/c3s"
+            />
+
+
+    </GridLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Score: 11"
+        android:id="@+id/textView"
+        android:layout_gravity="bottom|right"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
+
+</LinearLayout>
