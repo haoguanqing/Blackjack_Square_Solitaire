@@ -5,6 +5,8 @@
     <string name="title_activity_help">Help</string>
 
     <string name="score_text">Score: 0</string>
+    <string name="discards_text">Discards</string>
+    <string name="table_text">Table</string>
 
 
     <string name="help_text0">
