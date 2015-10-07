@@ -1,5 +1,7 @@
 package com.example.guanqing.solblackjack.Utility;
 
+import com.example.guanqing.solblackjack.R;
+
 /**
  * Created by Guanqing on 2015/10/5.
  */
@@ -15,6 +17,8 @@ public class Table {
     private Card[] column4;
     private Card[] column5;
 
+    private Card[] discards;
+
     public Table(){
         row1 = new Card[5];
         row2 = new Card[5];
@@ -26,6 +30,8 @@ public class Table {
         column3 = new Card[]{row1[2], row2[2], row3[1], row4[1]};
         column4 = new Card[]{row1[3], row2[3], row3[2], row4[2]};
         column5 = new Card[]{row1[4], row2[4]};
+
+        discards = new Card[4];
     }
 
     private boolean isAce(Card[] row){
@@ -84,5 +90,115 @@ public class Table {
                 + scoreRow(column4)
                 + scoreRow(column5);
         return score;
+    }
+
+    public void placeCard(int id, Card card){
+        switch (id){
+            case R.id.hand1:
+                row1[0] = card;
+                column1[0] = card;
+                break;
+            case R.id.hand2:
+                row1[1] = card;
+                column2[0] = card;
+                break;
+            case R.id.hand3:
+                row1[2] = card;
+                column3[0] = card;
+                break;
+            case R.id.hand4:
+                row1[3] = card;
+                column4[0] = card;
+                break;
+            case R.id.hand5:
+                row1[4] = card;
+                column5[0] = card;
+                break;
+            case R.id.hand6:
+                row2[0] = card;
+                column1[1] = card;
+                break;
+            case R.id.hand7:
+                row2[1] = card;
+                column2[1] = card;
+                break;
+            case R.id.hand8:
+                row2[2] = card;
+                column3[1] = card;
+                break;
+            case R.id.hand9:
+                row2[3] = card;
+                column4[1] = card;
+                break;
+            case R.id.hand10:
+                row2[4] = card;
+                column5[1] = card;
+                break;
+            case R.id.hand11:
+                row3[0] = card;
+                column2[2] = card;
+                break;
+            case R.id.hand12:
+                row3[1] = card;
+                column3[2] = card;
+                break;
+            case R.id.hand13:
+                row3[2] = card;
+                column4[2] = card;
+                break;
+            case R.id.hand14:
+                row4[0] = card;
+                column2[3] = card;
+                break;
+            case R.id.hand15:
+                row4[1] = card;
+                column3[3] = card;
+                break;
+            case R.id.hand16:
+                row4[2] = card;
+                column4[3] = card;
+                break;
+
+            case R.id.discard1:
+                discards[0] = card;
+                break;
+            case R.id.discard2:
+                discards[1] = card;
+                break;
+            case R.id.discard3:
+                discards[2] = card;
+                break;
+            case R.id.discard4:
+                discards[3] = card;
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public String toString() {
+        String s = "table\n[";
+        for (Card c: row1){
+            s += c + " ";
+        }
+        s+= "]\n[";
+        for (Card c: row2){
+            s += c + " ";
+        }
+        s+= "]\n[";
+        for (Card c: row3){
+            s += c + " ";
+        }
+        s+= "]\n[";
+        for (Card c: row4){
+            s += c + " ";
+        }
+        s+= "]\ndiscards: [";
+        for (Card c: discards){
+            s += c + " ";
+        }
+        s+= "]\n";
+        return s;
     }
 }
