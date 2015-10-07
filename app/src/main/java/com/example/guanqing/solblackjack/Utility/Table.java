@@ -20,6 +20,12 @@ public class Table {
     private Card[] discards;
 
     public Table(){
+        init();
+    }
+
+    //initialize the table
+    //clear all the cards
+    public void init(){
         row1 = new Card[5];
         row2 = new Card[5];
         row3 = new Card[3];
@@ -34,6 +40,7 @@ public class Table {
         discards = new Card[4];
     }
 
+    //return true if there is any Aces in a row/column
     private boolean isAce(Card[] row){
         for (Card card: row){
             if (card.getRank()==1){
@@ -174,6 +181,21 @@ public class Table {
             default:
                 break;
         }
+    }
+
+    private boolean rowIsFull(Card[] row){
+        for (Card c: row){
+            if (c==null){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isFull(){
+        boolean b = rowIsFull(row1) && rowIsFull(row2)
+                && rowIsFull(row3) && rowIsFull(row4);
+        return b;
     }
 
     @Override

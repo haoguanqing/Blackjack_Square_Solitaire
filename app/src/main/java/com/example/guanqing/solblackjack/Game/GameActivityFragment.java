@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.guanqing.solblackjack.R;
 import com.example.guanqing.solblackjack.Utility.Card;
@@ -59,6 +60,21 @@ public class GameActivityFragment extends Fragment {
         Log.e(LOG_TAG, table.toString());
         holder.scoreTextView.setText(getString(R.string.score_text, score+""));
         holder.scoreTextView.invalidate();
+
+        if(table.isFull()){
+            popUpResultWindow();
+        }
+    }
+
+
+    private void popUpResultWindow(){
+        Toast.makeText(getActivity(), "Final Score: "+score, Toast.LENGTH_SHORT).show();
+//        new AlertDialog.Builder(getActivity())
+//                .setTitle("Congratulations!")
+//                .setMessage("Your Final Score: "+score)
+//                .setNegativeButton(android.R.string.no, null)
+//                .setPositiveButton(android.R.string.yes, null)
+//                .create().show();
     }
 
     //custom OnDragListener
