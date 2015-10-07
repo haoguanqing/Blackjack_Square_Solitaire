@@ -6,6 +6,7 @@ import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -29,15 +30,19 @@ import butterknife.ButterKnife;
 public class GameActivityFragment extends Fragment {
     private static final String IMAGEVIEW_TAG = "TABLE_TAG";
     private static final String IMAGEVIEW_OCCUPIED_TAG = "OCCUPIED_TAG";
+    private static final String LOG_TAG = "HGQ_LOG";
+
     private ViewHolder holder;
     private static Deck deck;
     private static Table table;
     private Card dealCard;
     private Drawable dealCardDrawable;
+    private int score;
 
     public GameActivityFragment() {
         deck = new Deck();
         table = new Table();
+        score = 0;
     }
 
     @Override
@@ -49,9 +54,15 @@ public class GameActivityFragment extends Fragment {
         return rootView;
     }
 
-    private final class MyDragListener implements View.OnDragListener {
-        Drawable emptyCardDrawable = getResources().getDrawable(R.drawable.ce);
+    private void updateScore(){
+        score = table.scoreTable();
+        Log.e(LOG_TAG, table.toString());
+        holder.scoreTextView.setText(getString(R.string.score_text, score+""));
+        holder.scoreTextView.invalidate();
+    }
 
+    //custom OnDragListener
+    private final class MyDragListener implements View.OnDragListener {
         @Override
         public boolean onDrag(View v, DragEvent event) {
             int action = event.getAction();
@@ -74,12 +85,19 @@ public class GameActivityFragment extends Fragment {
                     if (imageView.getTag().equals(IMAGEVIEW_OCCUPIED_TAG)){
                         imageView.clearColorFilter();
                         imageView.invalidate();
+                        holder.deal.setVisibility(View.VISIBLE);
+                        holder.deal.invalidate();
                         return false;
                     }else{
                         imageView.setImageDrawable(dealCardDrawable);
                         imageView.clearColorFilter();
                         imageView.invalidate();
                         imageView.setTag(IMAGEVIEW_OCCUPIED_TAG);
+                        //update table
+                        table.placeCard(imageView.getId(), dealCard);
+                        //update score
+                        updateScore();
+                        //deal a new card
                         holder.dealCard();
                     }
                     break;
@@ -92,15 +110,17 @@ public class GameActivityFragment extends Fragment {
         }
     }
 
+    //custom OnTouchListener
     private final class MyTouchListener implements View.OnTouchListener {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                //ClipData data = ClipData.newPlainText("", "");
                 view.startDrag(null, new MyDragShadowBuilder(view), view, 0);
-                //view.setVisibility(View.INVISIBLE);
-                return true;
-            } else if(motionEvent.getAction() == MotionEvent.ACTION_BUTTON_RELEASE){
                 view.setVisibility(View.INVISIBLE);
+                view.invalidate();
+                return true;
+            } else if(motionEvent.getAction() == MotionEvent.ACTION_UP){
+                view.setVisibility(View.VISIBLE);
+                view.invalidate();
                 return true;
             } else {
                 return false;
@@ -171,6 +191,7 @@ public class GameActivityFragment extends Fragment {
             viewsList = new ImageView[]{discard1, discard2, discard3, discard4,
                     table1, table2, table3, table4, table5, table6, table7, table8, table9, table10,
                     table11, table12, table13, table14, table15, table16};
+            scoreTextView.setText(getString(R.string.score_text, "0"));
             setImageResources();
             setListeners();
             setTags();
@@ -190,6 +211,7 @@ public class GameActivityFragment extends Fragment {
             dealCard = deck.deal();
             dealCardDrawable = getActivity().getResources().getDrawable(Utilities.getCardDrawableResId(dealCard));
             deal.setImageResource(Utilities.getCardDrawableResId(dealCard));
+            deal.setVisibility(View.VISIBLE);
         }
 
         public void setListeners(){

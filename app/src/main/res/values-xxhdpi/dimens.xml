@@ -13,4 +13,6 @@
     <dimen name="back_width">54dp</dimen>
     <dimen name="back_height">81dp</dimen>
 
+    <dimen name="table_font_size">22sp</dimen>
+
 </resources>
