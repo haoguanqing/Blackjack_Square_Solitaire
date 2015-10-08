@@ -1,21 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
-    <string name="app_name">SolBlackjack</string>
+    <string name="app_name">纸牌矩阵</string>
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_help">Help</string>
+    <string name="action_settings">设置</string>
+    <string name="title_activity_help">帮助</string>
 
-    <string name="score_text">Score: <xliff:g id="score">%s</xliff:g></string>
-    <string name="discards_text">Discards</string>
-    <string name="table_text">Table</string>
+    <string name="score_text">分数：<xliff:g id="score">%s</xliff:g></string>
+    <string name="discards_text">弃牌</string>
+    <string name="table_text">牌桌</string>
 
 
     <string name="help_text0">
         <![CDATA[
-        <i><b>GOAL</b></i><br />
+        <i><b>游戏目标</b></i><br />
         Build multiple Blackjack hands to score as many points as possible.<br /><br />
-        <i><b>THE DEAL</b></i><br />
+        <i><b>发牌</b></i><br />
         The table starts the game empty. The Stock flips over one card.<br /><br />
-        <i><b>STOCK</b></i><br />
+        <i><b>牌堆</b></i><br />
         The face up card near the Stock must be played to a place in the Blackjack hands or a Discard Pile.
         As each card is played, the Stock will automatically flip another card.<br />
         ]]>
@@ -23,17 +24,17 @@
 
     <string name="help_text1">
         <![CDATA[
-        <i><b>LAYOUT</b></i><br />
+        <i><b>游戏框架</b></i><br />
         The 16 spaces may hold one card each. The spaces form nine hands of from 2 to 5 cards each depending on the position of the spaces.
         There are two hands of 2 cards, two hands of 3 cards, three hands of 4 cards, and two hands of 5 cards.<br /><br />
-        <i><b>DISCARDS</b></i><br />
+        <i><b>弃牌</b></i><br />
         There are four spaces where cards may be placed that are not wanted in the Blackjack hands. Each space may hold one card.<br /><br />
         ]]>
     </string>
 
     <string name="help_text2">
         <![CDATA[
-        <i><b>SCORING</b></i><br />
+        <i><b>得分计算</b></i><br />
         Scoring for the various Blackjack hands is based on how close the player comes to 21 in each hand. Face cards count as 10. Aces can count as either 1 or 11.<br /><br />
         Each of the nine hands are scored as follows:<br />
 
@@ -51,7 +52,7 @@
 
     <string name="help_text3">
         <![CDATA[
-        <i><b>ABOUT</b></i><br /><br />
+        <i><b>关于</b></i><br /><br />
         Blackjack Square is a SoliTaire! Network original created by Warren Schwader.<br />
         <br />
         The author Guanqing Hao created this application based on the Blackjack Square game rules.

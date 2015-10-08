@@ -40,7 +40,7 @@ public class Table {
         discards = new Card[4];
     }
 
-    //return true if there is any Aces in a row/column
+    //return true if there are any Aces in a row/column
     private boolean isAce(Card[] row){
         for (Card card: row){
             if (card.getRank()==1){
