@@ -5,4 +5,7 @@
 
     <dimen name="card_width">44dp</dimen>
     <dimen name="card_height">66dp</dimen>
+
+    <dimen name="dialog_horizontal_size">230dp</dimen>
+    <dimen name="dialog_vertical_size">260dp</dimen>
 </resources>

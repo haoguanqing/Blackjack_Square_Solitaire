@@ -43,8 +43,8 @@ public class GameActivity extends ActionBarActivity {
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
-                .setTitle("Back to Menu")
-                .setMessage("Do you want to abandon current game?")
+                .setTitle(getString(R.string.back_alertdialog_title))
+                .setMessage(getString(R.string.back_alertdialog_msg))
                 .setNegativeButton(android.R.string.no, null)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface arg0, int arg1) {

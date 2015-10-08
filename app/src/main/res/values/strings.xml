@@ -7,7 +7,8 @@
     <string name="score_text">Score: <xliff:g id="score">%s</xliff:g></string>
     <string name="discards_text">Discards</string>
     <string name="table_text">Table</string>
-
+    <string name="back_alertdialog_title">Back to Menu</string>
+    <string name="back_alertdialog_msg">Do you want to abandon current game?</string>
 
     <string name="help_text0">
         <![CDATA[
@@ -60,4 +61,9 @@
     </string>
     <string name="title_activity_game">GameActivity</string>
 
+    <string name="dialog_text">Congratulations! Your final score is <xliff:g id="score">%s</xliff:g>!</string>
+    <string name="low_score_dialog_text">Your final score is <xliff:g id="score">%s</xliff:g>.</string>
+    <string name="new_high_score_dialog_text">Congratulations! You achieved a new high score: <xliff:g id="score">%s</xliff:g></string>
+    <string name="restart">RESTART</string>
+    <string name="back">BACK</string>
 </resources>

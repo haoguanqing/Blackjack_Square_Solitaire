@@ -6,7 +6,7 @@ import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
@@ -60,21 +60,15 @@ public class GameActivityFragment extends Fragment {
         Log.e(LOG_TAG, table.toString());
         holder.scoreTextView.setText(getString(R.string.score_text, score+""));
         holder.scoreTextView.invalidate();
-
         if(table.isFull()){
             popUpResultWindow();
         }
     }
 
-
     private void popUpResultWindow(){
-
-        new AlertDialog.Builder(getActivity())
-                .setTitle("Congratulations!")
-                .setMessage("Your Final Score: "+score)
-                .setNegativeButton(android.R.string.no, null)
-                .setPositiveButton(android.R.string.yes, null)
-                .create().show();
+        ResultFragment fragment = ResultFragment.newInstance(score);
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        fragment.show(fm, "Dialog");
     }
 
     //custom OnDragListener
@@ -98,16 +92,10 @@ public class GameActivityFragment extends Fragment {
                     imageView.invalidate();
                     break;
                 case DragEvent.ACTION_DROP:
-                    if (imageView.getTag().equals(IMAGEVIEW_OCCUPIED_TAG)){
-                        imageView.clearColorFilter();
-                        imageView.invalidate();
-                        holder.deal.setVisibility(View.VISIBLE);
-                        holder.deal.invalidate();
-                        return false;
-                    }else{
+                    imageView.clearColorFilter();
+                    imageView.invalidate();
+                    if(imageView.getTag().equals(IMAGEVIEW_TAG)){
                         imageView.setImageDrawable(dealCardDrawable);
-                        imageView.clearColorFilter();
-                        imageView.invalidate();
                         imageView.setTag(IMAGEVIEW_OCCUPIED_TAG);
                         //update table
                         table.placeCard(imageView.getId(), dealCard);
@@ -115,9 +103,14 @@ public class GameActivityFragment extends Fragment {
                         updateScore();
                         //deal a new card
                         holder.dealCard();
+                    }else{
+                        return false;
                     }
                     break;
                 case DragEvent.ACTION_DRAG_ENDED:
+                    //handle the cases when drag ended but not dropped in any view
+                    holder.deal.setVisibility(View.VISIBLE);
+                    holder.deal.invalidate();
                     break;
                 default:
                     break;
@@ -133,14 +126,9 @@ public class GameActivityFragment extends Fragment {
                 view.startDrag(null, new MyDragShadowBuilder(view), view, 0);
                 view.setVisibility(View.INVISIBLE);
                 view.invalidate();
-                return true;
-            } else if(motionEvent.getAction() == MotionEvent.ACTION_UP){
-                view.setVisibility(View.VISIBLE);
-                view.invalidate();
-                return true;
-            } else {
-                return false;
+                Log.e(LOG_TAG, "ACTION DOWN");
             }
+            return true;
         }
     }
 
@@ -221,9 +209,6 @@ public class GameActivityFragment extends Fragment {
         }
 
         public void dealCard(){
-            if(deck.isEmpty()){
-                deck = new Deck();
-            }
             dealCard = deck.deal();
             dealCardDrawable = getActivity().getResources().getDrawable(Utilities.getCardDrawableResId(dealCard));
             deal.setImageResource(Utilities.getCardDrawableResId(dealCard));
