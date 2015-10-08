@@ -20,9 +20,7 @@ import com.example.guanqing.solblackjack.R;
  * A placeholder fragment containing a simple view.
  */
 public class MainActivityFragment extends Fragment {
-
-    public MainActivityFragment() {
-    }
+    public MainActivityFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

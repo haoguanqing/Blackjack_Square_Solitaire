@@ -14,4 +14,8 @@
 
     <dimen name="table_font_size">22sp</dimen>
 
+    <dimen name="share_icon_size">48dp</dimen>
+    <dimen name="dialog_horizontal_size">280dp</dimen>
+    <dimen name="dialog_vertical_size">320dp</dimen>
+
 </resources>
