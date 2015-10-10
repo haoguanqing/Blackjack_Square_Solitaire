@@ -1,5 +1,5 @@
 <resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
-    <string name="app_name">SolBlackjack</string>
+    <string name="app_name">Blackjack Square</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_help">Help</string>
@@ -66,4 +66,9 @@
     <string name="new_high_score_dialog_text">Congratulations! You achieved a new high score: <xliff:g id="score">%s</xliff:g></string>
     <string name="restart">RESTART</string>
     <string name="back">BACK</string>
+    <string name="share_content">I just scored <xliff:g id="score">%s</xliff:g> points in the game #BlackjackSquare!</string>
+    <string name="app_not_install">Please install <xliff:g id="app_name">%s</xliff:g> app first!</string>
+
+    <string name="facebook_app_id" translatable = "false">867541743343194</string>
+
 </resources>

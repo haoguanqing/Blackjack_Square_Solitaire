@@ -3,6 +3,8 @@ package com.example.guanqing.solblackjack.Game;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
@@ -12,9 +14,13 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.guanqing.solblackjack.Main.MainActivity;
 import com.example.guanqing.solblackjack.R;
+import com.facebook.FacebookSdk;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -33,7 +39,12 @@ public class ResultFragment extends DialogFragment {
     @Bind(R.id.back_button) Button back_button;
 
     private static final String SCORE_KEY = "SCORE_KEY";
+    private static final String FACEBOOK = "com.facebook.katana";
+    private static final String TWITTER = "com.twitter.android";
+    private static final String WECHAT = "com.tencent.mm";
     private int score;
+
+    private static final String LOG_TAG = "HGQ_DEBUG";
 
     /**
      * Use this factory method to create a new instance of
@@ -71,6 +82,7 @@ public class ResultFragment extends DialogFragment {
             score = savedInstanceState.getInt(SCORE_KEY);
             savedInstanceState.clear();
         }
+        FacebookSdk.sdkInitialize(getContext().getApplicationContext());
     }
 
     @Override
@@ -85,6 +97,33 @@ public class ResultFragment extends DialogFragment {
             dialog_textView.setText(getString(R.string.dialog_text, score));
         }
         getDialog().setCanceledOnTouchOutside(false);
+
+        //image for sharing contents on facebook
+        fb_share_imageview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: use facebook sdk for sharing
+                //shareToSocialMedia(FACEBOOK);
+            }
+        });
+
+        //tweeting messages
+        tweet_imageview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shareToSocialMedia(TWITTER);
+            }
+        });
+
+        //image for sharing contents on wechat
+        wechat_imageview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: use wechat sdk for sharing
+                //shareToSocialMedia(WECHAT);
+            }
+        });
+
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +133,7 @@ public class ResultFragment extends DialogFragment {
                 startActivity(intent);
             }
         });
+
         restart_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,4 +166,44 @@ public class ResultFragment extends DialogFragment {
                     getResources().getDimensionPixelSize(R.dimen.dialog_horizontal_size));
         }
     }
+
+
+
+    //--------------------------------------------------------------------------------
+    //------------------------------HELPER FUNCTIONS----------------------------------
+    //--------------------------------------------------------------------------------
+    public void shareToSocialMedia(String application) {
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        String shareContent = getString(R.string.share_content, score);
+        sharingIntent.setType("text/plain");
+        sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
+        sharingIntent.putExtra(Intent.EXTRA_TEXT, shareContent);
+        PackageManager packManager = getContext().getPackageManager();
+        List<ResolveInfo> resolvedInfoList = packManager.queryIntentActivities(sharingIntent, PackageManager.MATCH_DEFAULT_ONLY);
+
+        boolean resolved = false;
+        for(ResolveInfo resolveInfo: resolvedInfoList){
+            if(resolveInfo.activityInfo.packageName.startsWith(application)){
+                sharingIntent.setClassName(
+                        resolveInfo.activityInfo.packageName,
+                        resolveInfo.activityInfo.name);
+                resolved = true;
+                break;
+            }
+        }
+
+        if (resolved){
+            startActivity(sharingIntent);
+        }else{
+            String s = "";
+            if(application.equals(FACEBOOK)){
+                s = "Facebook";
+            }else{
+                s = "Twitter";
+            }
+            Toast.makeText(getActivity(), getString(R.string.app_not_install, s), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 }
