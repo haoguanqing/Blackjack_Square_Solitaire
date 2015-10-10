@@ -67,4 +67,8 @@
     <string name="new_high_score_dialog_text">恭喜你得到了新的最高分：<xliff:g id="score">%s</xliff:g>分！</string>
     <string name="restart">重新开始</string>
     <string name="back">返回</string>
+    <string name="share_content">I just scored <xliff:g id="score">%s</xliff:g> points in the game Blackjack Square Solitaire!
+    Are there any competitors?</string>
+    <string name="app_not_install">请首先安装<xliff:g id="app_name">%s</xliff:g>的应用！</string>
+
 </resources>

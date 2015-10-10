@@ -1,9 +1,11 @@
 package com.example.guanqing.solblackjack.Game;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,6 +23,9 @@ import com.example.guanqing.solblackjack.Utility.Card;
 import com.example.guanqing.solblackjack.Utility.Deck;
 import com.example.guanqing.solblackjack.Utility.Table;
 import com.example.guanqing.solblackjack.Utility.Utilities;
+
+import java.io.File;
+import java.io.FileOutputStream;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -60,7 +65,8 @@ public class GameActivityFragment extends Fragment {
         Log.e(LOG_TAG, table.toString());
         holder.scoreTextView.setText(getString(R.string.score_text, score+""));
         holder.scoreTextView.invalidate();
-        if(table.isFull()){
+        if(!table.isFull()) {
+            Uri screenshotUri = storeFile(getScreenShot(getView()));
             popUpResultWindow();
         }
     }
@@ -69,6 +75,28 @@ public class GameActivityFragment extends Fragment {
         ResultFragment fragment = ResultFragment.newInstance(score);
         FragmentManager fm = getActivity().getSupportFragmentManager();
         fragment.show(fm, "Dialog");
+    }
+
+    public static Bitmap getScreenShot(View view) {
+        View screenView = view.getRootView();
+        screenView.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(screenView.getDrawingCache());
+        screenView.setDrawingCacheEnabled(false);
+        return bitmap;
+    }
+
+    public Uri storeFile(Bitmap bm){
+        try {
+            File file = new File(getContext().getCacheDir(), "screenshot.png");
+            FileOutputStream fOut = new FileOutputStream(file);
+            bm.compress(Bitmap.CompressFormat.PNG, 85, fOut);
+            fOut.flush();
+            fOut.close();
+            return Uri.fromFile(file);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     //custom OnDragListener
