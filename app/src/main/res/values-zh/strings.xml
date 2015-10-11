@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
-    <string name="app_name">纸牌矩阵</string>
+    <string name="app_name">矩阵21点</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">设置</string>
     <string name="title_activity_help">帮助</string>
@@ -12,52 +12,49 @@
     <string name="back_alertdialog_msg">放弃当前游戏吗？</string>
 
     <string name="help_text0">
-        <![CDATA[
+        <![CDATA[<br /><br />
         <i><b>游戏目标</b></i><br />
         构造尽量多的21点手牌以获取高的分数。<br /><br />
         <i><b>发牌</b></i><br />
         每局开始时，牌桌为空，从洗好的牌堆中每次发一张牌。<br /><br />
         <i><b>牌堆</b></i><br />
-        The face up card near the Stock must be played to a place in the Blackjack hands or a Discard Pile.
-        As each card is played, the Stock will automatically flip another card.<br />
+        牌堆每轮自动发牌，所发的牌可选择放入21点矩阵中，或者丢入弃牌牌堆。当21点矩阵的16个空位被填满时，游戏结束，计算最终得分。.<br />
         ]]>
         </string>
 
     <string name="help_text1">
-        <![CDATA[
-        <i><b>游戏框架</b></i><br />
-        The 16 spaces may hold one card each. The spaces form nine hands of from 2 to 5 cards each depending on the position of the spaces.
-        There are two hands of 2 cards, two hands of 3 cards, three hands of 4 cards, and two hands of 5 cards.<br /><br />
+        <![CDATA[<br /><br />
+        <i><b>牌桌框架</b></i><br />
+        牌桌，或称为21点矩阵，有16个空位，分为4行5列。依位置不同，每一行（列）的牌数也不尽相同。<br /><br />
         <i><b>弃牌</b></i><br />
-        There are four spaces where cards may be placed that are not wanted in the Blackjack hands. Each space may hold one card.<br /><br />
+        如果本轮所发的牌不称心意，你可以将牌丢入弃牌堆中。弃牌堆共有四个空位。<br /><br />
         ]]>
     </string>
 
     <string name="help_text2">
-        <![CDATA[
+        <![CDATA[<br /><br />
         <i><b>得分计算</b></i><br />
-        Scoring for the various Blackjack hands is based on how close the player comes to 21 in each hand. Face cards count as 10. Aces can count as either 1 or 11.<br /><br />
-        Each of the nine hands are scored as follows:<br />
+        游戏的得分规则基于每一行（列）牌的点数的总和。点数越接近21点，分数就越高。J,Q,K计算为10分，A可以计算为1分或者11分。<br /><br />
+        具体得分规则如下：<br />
 
-    <i>10分：</i> Blackjack! A Blackjack is two cards that total 21. A King, Queen, Jack, or 10 combined with an Ace<br />
-    <i>7分：</i> All cards in hand that total 21<br />
-    <i>5分：</i> 总点数为20<br />
-    <i>4分：</i> 总点数为19<br />
-    <i>3分：</i> 总点数为18<br />
-    <i>2分：</i> 总点数为17<br />
-    <i>1分：</i> 总点数小于等于16<br />
-    <i>0分：</i> Bust! Total 22 or more<br /><br />
-    The scores from all nine hands are added together to arrive at the final score.<br />
+    <i>10分：</i> Blackjack! 两张牌的点数和为21点，即一张J,Q,K和一张A的组合<br />
+    <i>7分：</i> 一排或一列的点数和为21点<br />
+    <i>5分：</i> 总点数为20点<br />
+    <i>4分：</i> 总点数为19点<br />
+    <i>3分：</i> 总点数为18点<br />
+    <i>2分：</i> 总点数为17点<br />
+    <i>1分：</i> 总点数小于或等于16点<br />
+    <i>0分：</i> Bust! 点数大于22点会爆掉<br /><br />
+    最终的分数为9排（列）分数的总和。<br />
     ]]>
 </string>
 
     <string name="help_text3">
-        <![CDATA[
+        <![CDATA[<br /><br />
         <i><b>关于</b></i><br /><br />
-        Blackjack Square is a SoliTaire! Network original created by Warren Schwader.<br />
+        游戏<矩阵21点>是一个由Warren Schwader原创的纸牌游戏。<br />
         <br />
-        The author Guanqing Hao created this application based on the Blackjack Square game rules.
-        Should you find any bug, please feel free to contact Guanqing at besttth6@gmail.com.
+        作者在原有游戏规则的基础上加以优化制作了本游戏。如果发现错误，或者对本游戏有什么建议，请发送邮件到besttth6@gmail.com。祝愉快！
         ]]>
     </string>
     <string name="title_activity_game">GameActivity</string>
@@ -67,8 +64,7 @@
     <string name="new_high_score_dialog_text">恭喜你得到了新的最高分：<xliff:g id="score">%s</xliff:g>分！</string>
     <string name="restart">重新开始</string>
     <string name="back">返回</string>
-    <string name="share_content">I just scored <xliff:g id="score">%s</xliff:g> points in the game Blackjack Square Solitaire!
-    Are there any competitors?</string>
+    <string name="share_content">我在纸牌游戏矩阵21点中得到了<xliff:g id="score">%s</xliff:g>分的高分！#矩阵21点</string>
     <string name="app_not_install">请首先安装<xliff:g id="app_name">%s</xliff:g>的应用！</string>
 
 </resources>

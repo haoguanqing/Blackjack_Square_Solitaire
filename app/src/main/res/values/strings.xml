@@ -11,7 +11,7 @@
     <string name="back_alertdialog_msg">Do you want to abandon current game?</string>
 
     <string name="help_text0">
-        <![CDATA[
+        <![CDATA[<br /><br />
         <i><b>GOAL</b></i><br />
         Build multiple Blackjack hands to score as many points as possible.<br /><br />
         <i><b>THE DEAL</b></i><br />
@@ -23,7 +23,7 @@
         </string>
 
     <string name="help_text1">
-        <![CDATA[
+        <![CDATA[<br /><br />
         <i><b>LAYOUT</b></i><br />
         The 16 spaces may hold one card each. The spaces form nine hands of from 2 to 5 cards each depending on the position of the spaces.
         There are two hands of 2 cards, two hands of 3 cards, three hands of 4 cards, and two hands of 5 cards.<br /><br />
@@ -33,7 +33,7 @@
     </string>
 
     <string name="help_text2">
-        <![CDATA[
+        <![CDATA[<br /><br />
         <i><b>SCORING</b></i><br />
         Scoring for the various Blackjack hands is based on how close the player comes to 21 in each hand. Face cards count as 10. Aces can count as either 1 or 11.<br /><br />
         Each of the nine hands are scored as follows:<br />
@@ -51,7 +51,7 @@
 </string>
 
     <string name="help_text3">
-        <![CDATA[
+        <![CDATA[<br /><br />
         <i><b>ABOUT</b></i><br /><br />
         Blackjack Square is a SoliTaire! Network original created by Warren Schwader.<br />
         <br />

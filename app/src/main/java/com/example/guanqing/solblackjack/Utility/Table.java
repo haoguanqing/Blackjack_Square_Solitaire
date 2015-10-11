@@ -1,11 +1,17 @@
 package com.example.guanqing.solblackjack.Utility;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.example.guanqing.solblackjack.R;
+
+import java.util.ArrayList;
 
 /**
  * Created by Guanqing on 2015/10/5.
+ * Modified into parcelable on 2015/10/11
  */
-public class Table {
+public class Table implements Parcelable{
     private Card[] row1;
     private Card[] row2;
     private Card[] row3;
@@ -198,6 +204,26 @@ public class Table {
         return b;
     }
 
+    public ArrayList<Card> toArrayList(){
+        ArrayList<Card> lst = new ArrayList<>();
+        for (Card c:row1){
+            lst.add(c);
+        }
+        for (Card c:row2){
+            lst.add(c);
+        }
+        for (Card c:row3){
+            lst.add(c);
+        }
+        for (Card c:row4){
+            lst.add(c);
+        }
+        for (Card c:discards){
+            lst.add(c);
+        }
+        return lst;
+    }
+
     @Override
     public String toString() {
         String s = "table\n[";
@@ -223,4 +249,38 @@ public class Table {
         s+= "]\n";
         return s;
     }
+
+    //-----------------parcelable methods-----------------------
+    protected Table(Parcel in) {
+        ArrayList lst = in.readArrayList(Card.class.getClassLoader());
+        lst.subList(0,5).toArray(row1);
+        lst.subList(5,10).toArray(row2);
+        lst.subList(10,13).toArray(row3);
+        lst.subList(13,16).toArray(row4);
+        lst.subList(16,20).toArray(discards);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        ArrayList<Card> lst = toArrayList();
+        dest.writeTypedList(lst);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Table> CREATOR = new Parcelable.Creator<Table>() {
+        @Override
+        public Table createFromParcel(Parcel in) {
+            return new Table(in);
+        }
+
+        @Override
+        public Table[] newArray(int size) {
+            return new Table[size];
+        }
+    };
 }

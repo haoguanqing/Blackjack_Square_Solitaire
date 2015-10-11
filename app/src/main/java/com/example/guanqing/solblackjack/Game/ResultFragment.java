@@ -5,8 +5,10 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,10 +41,12 @@ public class ResultFragment extends DialogFragment {
     @Bind(R.id.back_button) Button back_button;
 
     private static final String SCORE_KEY = "SCORE_KEY";
+    private static final String URI_KEY = "URI_KEY";
     private static final String FACEBOOK = "com.facebook.katana";
     private static final String TWITTER = "com.twitter.android";
     private static final String WECHAT = "com.tencent.mm";
     private int score;
+    private Uri screenshotUri;
 
     private static final String LOG_TAG = "HGQ_DEBUG";
 
@@ -53,10 +57,11 @@ public class ResultFragment extends DialogFragment {
      * @param finalScore Parameter 1.
      * @return A new instance of fragment ResultFragment.
      */
-    public static ResultFragment newInstance(int finalScore) {
+    public static ResultFragment newInstance(int finalScore, Uri uri) {
         ResultFragment fragment = new ResultFragment();
         Bundle args = new Bundle();
         args.putInt(SCORE_KEY, finalScore);
+        args.putString(URI_KEY, uri.toString());
         fragment.setArguments(args);
         return fragment;
     }
@@ -69,6 +74,7 @@ public class ResultFragment extends DialogFragment {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt(SCORE_KEY, score);
+        outState.putString(URI_KEY, screenshotUri.toString());
     }
 
     @Override
@@ -77,9 +83,11 @@ public class ResultFragment extends DialogFragment {
         if(savedInstanceState==null){
             if (getArguments() != null) {
                 score = getArguments().getInt(SCORE_KEY);
+                screenshotUri = Uri.parse(getArguments().getString(URI_KEY));
             }
         }else{
             score = savedInstanceState.getInt(SCORE_KEY);
+            screenshotUri = Uri.parse(savedInstanceState.getString(URI_KEY));
             savedInstanceState.clear();
         }
         FacebookSdk.sdkInitialize(getContext().getApplicationContext());
@@ -104,15 +112,37 @@ public class ResultFragment extends DialogFragment {
             public void onClick(View v) {
                 //TODO: use facebook sdk for sharing
                 //shareToSocialMedia(FACEBOOK);
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                sharingIntent.setType("image/png");
+                sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
+                sharingIntent.putExtra(Intent.EXTRA_STREAM, screenshotUri);
+                Log.v(LOG_TAG, screenshotUri.toString());
+                PackageManager packManager = getContext().getPackageManager();
+                List<ResolveInfo> resolvedInfoList = packManager.queryIntentActivities(sharingIntent, PackageManager.MATCH_DEFAULT_ONLY);
+
+                boolean resolved = false;
+                for(ResolveInfo resolveInfo: resolvedInfoList){
+                    if(resolveInfo.activityInfo.packageName.startsWith(FACEBOOK)){
+                        sharingIntent.setClassName(
+                                resolveInfo.activityInfo.packageName,
+                                resolveInfo.activityInfo.name);
+                        resolved = true;
+                        break;
+                    }
+                }
+                if (resolved){
+                    startActivity(sharingIntent);
+                }else{
+                    String s = "Facebook";
+                    Toast.makeText(getActivity(), getString(R.string.app_not_install, s), Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
         //tweeting messages
         tweet_imageview.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                shareToSocialMedia(TWITTER);
-            }
+            public void onClick(View v) {shareToSocialMedia(TWITTER);}
         });
 
         //image for sharing contents on wechat
@@ -121,6 +151,11 @@ public class ResultFragment extends DialogFragment {
             public void onClick(View v) {
                 //TODO: use wechat sdk for sharing
                 //shareToSocialMedia(WECHAT);
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                sharingIntent.setType("image/png");
+                sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
+                sharingIntent.putExtra(Intent.EXTRA_STREAM, screenshotUri);
+                startActivity(sharingIntent);
             }
         });
 
@@ -183,7 +218,7 @@ public class ResultFragment extends DialogFragment {
 
         boolean resolved = false;
         for(ResolveInfo resolveInfo: resolvedInfoList){
-            if(resolveInfo.activityInfo.packageName.startsWith(application)){
+            if(resolveInfo.activityInfo.packageName.toLowerCase().startsWith(application)){
                 sharingIntent.setClassName(
                         resolveInfo.activityInfo.packageName,
                         resolveInfo.activityInfo.name);
