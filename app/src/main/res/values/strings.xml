@@ -59,14 +59,14 @@
         Should you find any bug, please feel free to contact Guanqing at besttth6@gmail.com.
         ]]>
     </string>
-    <string name="title_activity_game">GameActivity</string>
+    <string name="title_activity_game" translatable = "false">GameActivity</string>
 
     <string name="dialog_text">Congratulations! Your final score is <xliff:g id="score">%s</xliff:g>!</string>
     <string name="low_score_dialog_text">Your final score is <xliff:g id="score">%s</xliff:g>.</string>
     <string name="new_high_score_dialog_text">Congratulations! You achieved a new high score: <xliff:g id="score">%s</xliff:g></string>
-    <string name="restart">RESTART</string>
+    <string name="restart">NEW GAME</string>
     <string name="back">BACK</string>
-    <string name="share_content">I just scored <xliff:g id="score">%s</xliff:g> points in the game #BlackjackSquare!</string>
+    <string name="share_content">I just scored <xliff:g id="score">%s</xliff:g> points in the game #BlackjackSquare</string>
     <string name="app_not_install">Please install <xliff:g id="app_name">%s</xliff:g> app first!</string>
 
     <string name="facebook_app_id" translatable = "false">867541743343194</string>
