@@ -64,6 +64,7 @@
     <string name="restart">重新开始</string>
     <string name="back">返回</string>
     <string name="share_content">我在纸牌游戏矩阵21点中得到了<xliff:g id="score">%s</xliff:g>分的高分！#矩阵21点</string>
+    <string name="share_from">分享到</string>
     <string name="app_not_install">请首先安装<xliff:g id="app_name">%s</xliff:g>的应用！</string>
 
 </resources>

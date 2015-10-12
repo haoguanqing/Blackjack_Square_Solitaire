@@ -8,7 +8,6 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +19,6 @@ import android.widget.Toast;
 
 import com.example.guanqing.solblackjack.Main.MainActivity;
 import com.example.guanqing.solblackjack.R;
-import com.facebook.FacebookSdk;
 
 import java.util.List;
 
@@ -50,6 +48,8 @@ public class ResultFragment extends DialogFragment {
 
     private static final String LOG_TAG = "HGQ_DEBUG";
 
+    public ResultFragment() {}
+
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -64,10 +64,6 @@ public class ResultFragment extends DialogFragment {
         args.putString(URI_KEY, uri.toString());
         fragment.setArguments(args);
         return fragment;
-    }
-
-    public ResultFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -90,7 +86,6 @@ public class ResultFragment extends DialogFragment {
             screenshotUri = Uri.parse(savedInstanceState.getString(URI_KEY));
             savedInstanceState.clear();
         }
-        FacebookSdk.sdkInitialize(getContext().getApplicationContext());
     }
 
     @Override
@@ -99,63 +94,27 @@ public class ResultFragment extends DialogFragment {
         // Inflate the layout for this fragment
         final View rootView =  inflater.inflate(R.layout.fragment_result, container, false);
         ButterKnife.bind(this, rootView);
-        if (score<16){
-            dialog_textView.setText(getString(R.string.low_score_dialog_text, score));
-        }else{
-            dialog_textView.setText(getString(R.string.dialog_text, score));
-        }
+        setDialogText();
         getDialog().setCanceledOnTouchOutside(false);
 
         //image for sharing contents on facebook
         fb_share_imageview.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                //TODO: use facebook sdk for sharing
-                //shareToSocialMedia(FACEBOOK);
-                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-                sharingIntent.setType("image/png");
-                sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
-                sharingIntent.putExtra(Intent.EXTRA_STREAM, screenshotUri);
-                Log.v(LOG_TAG, screenshotUri.toString());
-                PackageManager packManager = getContext().getPackageManager();
-                List<ResolveInfo> resolvedInfoList = packManager.queryIntentActivities(sharingIntent, PackageManager.MATCH_DEFAULT_ONLY);
-
-                boolean resolved = false;
-                for(ResolveInfo resolveInfo: resolvedInfoList){
-                    if(resolveInfo.activityInfo.packageName.startsWith(FACEBOOK)){
-                        sharingIntent.setClassName(
-                                resolveInfo.activityInfo.packageName,
-                                resolveInfo.activityInfo.name);
-                        resolved = true;
-                        break;
-                    }
-                }
-                if (resolved){
-                    startActivity(sharingIntent);
-                }else{
-                    String s = "Facebook";
-                    Toast.makeText(getActivity(), getString(R.string.app_not_install, s), Toast.LENGTH_SHORT).show();
-                }
+            public void onClick(View v) {shareTextAndScreenshot(FACEBOOK);
             }
         });
 
         //tweeting messages
         tweet_imageview.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {shareToSocialMedia(TWITTER);}
+            public void onClick(View v) {shareTextAndScreenshot(TWITTER);}
         });
 
         //image for sharing contents on wechat
         wechat_imageview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: use wechat sdk for sharing
-                //shareToSocialMedia(WECHAT);
-                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-                sharingIntent.setType("image/png");
-                sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
-                sharingIntent.putExtra(Intent.EXTRA_STREAM, screenshotUri);
-                startActivity(sharingIntent);
+            shareTextAndScreenshot(null);
             }
         });
 
@@ -203,42 +162,52 @@ public class ResultFragment extends DialogFragment {
     }
 
 
-
     //--------------------------------------------------------------------------------
     //------------------------------HELPER FUNCTIONS----------------------------------
     //--------------------------------------------------------------------------------
-    public void shareToSocialMedia(String application) {
-        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-        String shareContent = getString(R.string.share_content, score);
-        sharingIntent.setType("text/plain");
-        sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
-        sharingIntent.putExtra(Intent.EXTRA_TEXT, shareContent);
-        PackageManager packManager = getContext().getPackageManager();
-        List<ResolveInfo> resolvedInfoList = packManager.queryIntentActivities(sharingIntent, PackageManager.MATCH_DEFAULT_ONLY);
-
-        boolean resolved = false;
-        for(ResolveInfo resolveInfo: resolvedInfoList){
-            if(resolveInfo.activityInfo.packageName.toLowerCase().startsWith(application)){
-                sharingIntent.setClassName(
-                        resolveInfo.activityInfo.packageName,
-                        resolveInfo.activityInfo.name);
-                resolved = true;
-                break;
-            }
-        }
-
-        if (resolved){
-            startActivity(sharingIntent);
+    private void setDialogText(){
+        if (score<16){
+            dialog_textView.setText(getString(R.string.low_score_dialog_text, score));
         }else{
-            String s = "";
-            if(application.equals(FACEBOOK)){
-                s = "Facebook";
-            }else{
-                s = "Twitter";
-            }
-            Toast.makeText(getActivity(), getString(R.string.app_not_install, s), Toast.LENGTH_SHORT).show();
+            dialog_textView.setText(getString(R.string.dialog_text, score));
         }
     }
 
+    private void shareTextAndScreenshot(String application){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        String shareContent = getString(R.string.share_content, score);
+        intent.putExtra(Intent.EXTRA_TEXT, shareContent);
+        intent.putExtra(Intent.EXTRA_STREAM, screenshotUri);
+        intent.setType("image/*");
 
+        if (application==null){
+            startActivity(Intent.createChooser(intent, getString(R.string.share_from)));
+        }else{
+            PackageManager packManager = getContext().getPackageManager();
+            List<ResolveInfo> resolvedInfoList = packManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+
+            boolean resolved = false;
+            for (ResolveInfo resolveInfo : resolvedInfoList) {
+                if (resolveInfo.activityInfo.packageName.toLowerCase().startsWith(application)) {
+                    intent.setClassName(
+                            resolveInfo.activityInfo.packageName,
+                            resolveInfo.activityInfo.name);
+                    resolved = true;
+                    break;
+                }
+            }
+
+            if (resolved) {
+                startActivity(intent);
+            } else {
+                String s = "";
+                if (application.equals(FACEBOOK)) {
+                    s = "Facebook";
+                } else {
+                    s = "Twitter";
+                }
+                Toast.makeText(getActivity(), getString(R.string.app_not_install, s), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 }

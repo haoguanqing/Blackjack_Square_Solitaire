@@ -7,7 +7,6 @@ import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
@@ -91,9 +90,9 @@ public class GameActivityFragment extends Fragment {
         holder.scoreTextView.setText(getString(R.string.score_text, score + ""));
         holder.scoreTextView.invalidate();
         if(table.isFull()) {
-            Uri screenshotUri = storeFile(getScreenShot(
+            Uri screenshot = storeFile(getScreenShot(
                     getActivity().getWindow().getDecorView().findViewById(android.R.id.content)));
-            popUpResultWindow(screenshotUri);
+            popUpResultWindow(screenshot);
         }
     }
 
@@ -103,7 +102,7 @@ public class GameActivityFragment extends Fragment {
         fragment.show(fm, "Dialog");
     }
 
-    public static Bitmap getScreenShot(View view) {
+    public Bitmap getScreenShot(View view) {
         View screenView = view.getRootView();
         screenView.setDrawingCacheEnabled(true);
         Bitmap bitmap = Bitmap.createBitmap(screenView.getDrawingCache());
@@ -113,13 +112,11 @@ public class GameActivityFragment extends Fragment {
 
     public Uri storeFile(Bitmap bm){
         try {
-            File file = new File(getContext().getCacheDir(), "screenshot.png");
+            File file = new File(getContext().getExternalCacheDir()+"/screenshot.png");
             FileOutputStream fOut = new FileOutputStream(file);
             bm.compress(Bitmap.CompressFormat.PNG, 85, fOut);
             fOut.flush();
             fOut.close();
-            MediaStore.Images.Media.insertImage(getContext().getContentResolver(), bm, "screenshot.png", "gaga");
-            Log.v(LOG_TAG, "Uri from file: "+Uri.fromFile(file).toString());
             return Uri.fromFile(file);
         } catch (Exception e) {
             e.printStackTrace();
