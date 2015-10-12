@@ -57,7 +57,6 @@
         作者在原有游戏规则的基础上加以优化制作了本游戏。如果发现错误，或者对本游戏有什么建议，请发送邮件到besttth6@gmail.com。祝愉快！
         ]]>
     </string>
-    <string name="title_activity_game">GameActivity</string>
 
     <string name="dialog_text">你的得分是<xliff:g id="score">%s</xliff:g>分！厉害！</string>
     <string name="low_score_dialog_text">你拿到了<xliff:g id="score">%s</xliff:g>分！加油！</string>
