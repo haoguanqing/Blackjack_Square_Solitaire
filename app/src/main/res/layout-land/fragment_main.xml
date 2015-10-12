@@ -11,7 +11,7 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/main_title_height"
         android:id="@+id/app_title_imageView"
         android:src="@drawable/title2"
         android:layout_gravity="center_horizontal" />
@@ -21,6 +21,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
         android:gravity="center_horizontal">
 
         <LinearLayout
@@ -31,21 +32,25 @@
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_gravity="left">
+            android:layout_gravity="start">
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/startButton"
-                android:src="@drawable/facebook_button"
+                android:src="@drawable/start"
+                android:background="@null"
                 android:layout_gravity="center_horizontal" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/helpButton"
-                android:src="@drawable/facebook_button"
+                android:id="@+id/leaderBoardsButton"
+                android:src="@drawable/leaderboard"
+                android:background="@null"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:layout_gravity="center_horizontal" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -56,24 +61,35 @@
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:gravity="right">
+            android:gravity="end">
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/storeButton"
-                android:src="@drawable/facebook_button"
+                android:src="@drawable/setting"
+                android:background="@null"
                 android:layout_gravity="center_horizontal" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/leaderBoardsButton"
-                android:src="@drawable/facebook_button"
+                android:id="@+id/helpButton"
+                android:src="@drawable/help"
+                android:background="@null"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:layout_gravity="center_horizontal" />
+
         </LinearLayout>
     </LinearLayout>
 
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/version"
+        android:layout_gravity="end|bottom"
+        android:gravity="bottom"
+        android:textColor="@color/help_text_color"
+        android:id="@+id/textView" />
 
 </LinearLayout>
