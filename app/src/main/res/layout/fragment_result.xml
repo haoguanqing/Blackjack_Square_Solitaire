@@ -28,6 +28,7 @@
                 android:layout_width="@dimen/share_icon_size"
                 android:layout_height="@dimen/share_icon_size"
                 android:padding="@dimen/fragment_inner_padding"
+                android:background="@null"
                 android:id="@+id/fb_share_imageview"
                 android:src="@drawable/facebook_icon"
                 android:layout_gravity="center_horizontal|top" />
@@ -36,6 +37,7 @@
                 android:layout_width="@dimen/share_icon_size"
                 android:layout_height="@dimen/share_icon_size"
                 android:padding="@dimen/fragment_inner_padding"
+                android:background="@null"
                 android:id="@+id/tweet_imageview"
                 android:src="@drawable/tweeter_icon" />
 
@@ -43,6 +45,7 @@
                 android:layout_width="@dimen/share_icon_size"
                 android:layout_height="@dimen/share_icon_size"
                 android:padding="@dimen/fragment_inner_padding"
+                android:background="@null"
                 android:id="@+id/wechat_imageview"
                 android:src="@drawable/wechat_icon" />
 

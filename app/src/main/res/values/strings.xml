@@ -67,8 +67,9 @@
     <string name="new_high_score_dialog_text">Congratulations! You achieved a new high score: <xliff:g id="score">%s</xliff:g></string>
     <string name="restart">NEW GAME</string>
     <string name="back">BACK</string>
-    <string name="share_content">I just scored <xliff:g id="score">%s</xliff:g> points in the game #BlackjackSquare</string>
-    <string name="app_not_install">Please install <xliff:g id="app_name">%s</xliff:g> app first!</string>
+    <string name="share_content">I just scored <xliff:g id="score">%s</xliff:g> points in the game #BlackjackSquare !</string>
+    <string name="share_from">Share from</string>
+    <string name="app_not_install"><xliff:g id="app_name">%s</xliff:g> App is not installed on this device.</string>
 
     <string name="facebook_app_id" translatable = "false">867541743343194</string>
 

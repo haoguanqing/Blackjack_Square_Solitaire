@@ -1,7 +1,11 @@
 package com.example.guanqing.solblackjack.Utility;
 
+import android.graphics.Bitmap;
+import android.net.Uri;
+
 import com.example.guanqing.solblackjack.R;
 
+import java.io.File;
 import java.util.HashMap;
 
 /**
@@ -10,6 +14,9 @@ import java.util.HashMap;
 public class Utilities {
     //create a hashmap to relate a card to its corresponding drawable
     public static HashMap<Card, Integer> cardResHashMap;
+    public static Bitmap cacheScreenshot;
+    public static Uri screenshotUri;
+    public static File screenshot;
 
     public Utilities(){
     }
@@ -80,6 +87,14 @@ public class Utilities {
         cardResHashMap.put(new Card(13,"D"), R.drawable.c13d);
         cardResHashMap.put(new Card(13,"H"), R.drawable.c13h);
         cardResHashMap.put(new Card(13,"S"), R.drawable.c13s);
+    }
+
+    public static void cacheScreenshot(Bitmap b){
+        cacheScreenshot = b;
+    }
+
+    public static Bitmap getScreenshot(){
+        return cacheScreenshot;
     }
 
     /**
