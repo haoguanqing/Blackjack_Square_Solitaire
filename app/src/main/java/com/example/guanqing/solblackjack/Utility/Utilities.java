@@ -2,32 +2,32 @@ package com.example.guanqing.solblackjack.Utility;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.example.guanqing.solblackjack.R;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
 
 /**
  * Created by Guanqing on 2015/10/5.
  */
 public class Utilities {
+    private static final String LOG_TAG = "HGQ_DEBUG";
+
     //create a hashmap to relate a card to its corresponding drawable
     public static HashMap<Card, Integer> cardResHashMap;
     public static String GAME_PREFS = "GAME_PREFS";
+    //key strings for sharedPreferences
     public static String HIGH_SCORE_KEY = "HIGH_SCORE_KEY";
     public static String TOTAL_SCORE_KEY = "TOTAL_SCORE_KEY";
     public static String TOTAL_GAME_NUMBER_KEY = "TOTAL_GAME_NUMBER_KEY";
 
     public Utilities(){}
-
-
 
     /**
      * get the corresponding drawable id of a card
@@ -52,15 +52,19 @@ public class Utilities {
         SharedPreferences pref = context.getSharedPreferences(GAME_PREFS, 0);
         SharedPreferences.Editor editor = pref.edit();
         String newScoreInfo = getNewScoreString(newScore);
-
+        Log.e(LOG_TAG, "new score info: "+newScoreInfo);
         String highscores = pref.getString(HIGH_SCORE_KEY, "");
-        if(highscores.isEmpty()){
+        Log.e(LOG_TAG, "high scores: "+highscores);
+        if(highscores.equals("")){
+            Log.e(LOG_TAG, "is empty");
             editor.putString(HIGH_SCORE_KEY, newScoreInfo);
             editor.apply();
             return true;
         }
 
-        String[] scores = highscores.split("|//|");
+        Log.e(LOG_TAG, "not empty");
+        String[] scores = highscores.split("/");
+        Log.e(LOG_TAG, "scores last one: "+scores[scores.length-1]);
         if(getScore(scores[scores.length-1])<newScore){
             String newHighScores = getNewHighScores(scores, newScoreInfo);
             editor.putString(HIGH_SCORE_KEY, newHighScores);
@@ -84,38 +88,56 @@ public class Utilities {
     }
 
     private static int getScore(String s){
+        Log.e(LOG_TAG, "get score string: "+s);
+        Log.e(LOG_TAG, "s.length: " + s.length());
         return Integer.parseInt(s.substring(s.length() - 2));
     }
 
     private static String getNewHighScores(String[] scores, String newScoreInfo){
-        Map<Integer, String> map = new TreeMap<>();
-        map.put(getScore(newScoreInfo), newScoreInfo);
+        Score score = new Score(getScore(newScoreInfo), newScoreInfo);
+        ArrayList<Score> list = new ArrayList<>();
+        list.add(score);
         int len = scores.length;
         if(len==6){
+            //keep the max number of high scores at 6
             len=5;
         }
         for (int i=0;i<len;i++){
-            map.put(getScore(scores[i]), scores[i]);
+            list.add(new Score(getScore(scores[i]), scores[i]));
         }
+        Collections.sort(list);
+
         String newHighScore = "";
-        Set set = map.entrySet();
-        Iterator iterator = set.iterator();
-        while(iterator.hasNext()){
-            Map.Entry entry = (Map.Entry) iterator.next();
-            newHighScore += entry.getValue() + "|//|";
+        for(Score sc:list){
+            newHighScore += sc.info + "/";
         }
-        return newHighScore.substring(0, newHighScore.length() - 4);
+        return newHighScore.substring(0, newHighScore.length() - 1);
     }
 
     public static String getHighScores(Context context){
         SharedPreferences pref = context.getSharedPreferences(GAME_PREFS, 0);
-        SharedPreferences.Editor editor = pref.edit();
         String highscores = pref.getString(HIGH_SCORE_KEY, "");
         if (highscores.isEmpty()){
             return "no record";
         }
-        highscores = highscores.replaceAll("|//|", "\n");
+        highscores = highscores.replaceAll("/", "\n");
         return highscores;
+    }
+
+    public static boolean isNewHighScore(Context context, int newScore){
+        SharedPreferences pref = context.getSharedPreferences(GAME_PREFS, 0);
+        String highscores = pref.getString(HIGH_SCORE_KEY, "");
+        if(highscores.equals("")){
+            return true;
+        }
+
+        String[] scores = highscores.split("/");
+        if (scores.length==6){
+            return true;
+        }else if(getScore(scores[scores.length-1])<newScore){
+            return true;
+        }
+        return false;
     }
 
     //-------- Set the total number of games played -------------------------
@@ -126,22 +148,21 @@ public class Utilities {
 
         int totalScore = pref.getInt(TOTAL_SCORE_KEY, 0);
         totalScore+=newScore;
-        editor.putInt(TOTAL_SCORE_KEY, totalScore);
+        editor.putInt(TOTAL_SCORE_KEY, totalScore).apply();
 
         int gameNum = pref.getInt(TOTAL_GAME_NUMBER_KEY, 0);
         gameNum++;
-        editor.putInt(TOTAL_GAME_NUMBER_KEY, gameNum);
-
-        editor.apply();
+        editor.putInt(TOTAL_GAME_NUMBER_KEY, gameNum).apply();
     }
 
-    public static double getAvgScore(Context context){
+    public static String getAvgScore(Context context){
         SharedPreferences pref = context.getSharedPreferences(GAME_PREFS, 0);
 
         int totalScore = pref.getInt(TOTAL_SCORE_KEY, 0);
         int gameNum = pref.getInt(TOTAL_GAME_NUMBER_KEY, 0);
-        if (gameNum==0){return 0;}
-        return totalScore / (double) gameNum;
+        if (gameNum==0){return "0.00";}
+        double avg = totalScore / (double) gameNum;
+        return String.format("%.2f", avg);
     }
 
     public static int getTotalGameNum(Context context){
@@ -151,11 +172,8 @@ public class Utilities {
 
     public static void resetStatistics(Context context){
         SharedPreferences pref = context.getSharedPreferences(GAME_PREFS, 0);
-        pref.edit().clear();
-        pref.edit().commit();
+        pref.edit().clear().apply();
     }
-
-
 
 
 

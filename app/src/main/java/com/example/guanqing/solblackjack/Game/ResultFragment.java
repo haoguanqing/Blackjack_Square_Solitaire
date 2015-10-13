@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.guanqing.solblackjack.Main.MainActivity;
 import com.example.guanqing.solblackjack.R;
+import com.example.guanqing.solblackjack.Utility.Utilities;
 
 import java.util.List;
 
@@ -166,7 +167,9 @@ public class ResultFragment extends DialogFragment {
     //------------------------------HELPER FUNCTIONS----------------------------------
     //--------------------------------------------------------------------------------
     private void setDialogText(){
-        if (score<16){
+        if(Utilities.isNewHighScore(getContext(), score)){
+            dialog_textView.setText(getString(R.string.new_high_score_dialog_text, score));
+        }else if(score<16){
             dialog_textView.setText(getString(R.string.low_score_dialog_text, score));
         }else{
             dialog_textView.setText(getString(R.string.dialog_text, score));

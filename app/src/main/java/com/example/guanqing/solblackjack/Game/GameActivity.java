@@ -11,10 +11,6 @@ import com.example.guanqing.solblackjack.R;
 
 public class GameActivity extends ActionBarActivity {
 
-    private static final String SCORE_KEY = "SCORE_KEY";
-    private static final String FACEBOOK = "com.facebook.katana";
-    private static final String TWITTER = "com.twitter.android";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

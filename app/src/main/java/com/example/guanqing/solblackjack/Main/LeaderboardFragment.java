@@ -41,11 +41,11 @@ public class LeaderboardFragment extends DialogFragment {
         reset_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Utilities.resetStatistics(getContext());
+                setDialogText();
             }
         });
         return rootView;
-
     }
 
     @Override
@@ -62,17 +62,20 @@ public class LeaderboardFragment extends DialogFragment {
             return;
         if (getResources().getConfiguration().orientation==1){
             //get dimensions from dimens.xml so as to write them in dp and retrieve them in px
-            getDialog().getWindow().setLayout(getResources().getDimensionPixelSize(R.dimen.dialog_horizontal_size),
-                    getResources().getDimensionPixelSize(R.dimen.dialog_vertical_size));
+            getDialog().getWindow().setLayout(getResources().getDimensionPixelSize(R.dimen.leaderboard_horizontal_size),
+                    getResources().getDimensionPixelSize(R.dimen.leaderboard_vertical_size));
         }else{
-            getDialog().getWindow().setLayout(getResources().getDimensionPixelSize(R.dimen.dialog_vertical_size),
-                    getResources().getDimensionPixelSize(R.dimen.dialog_horizontal_size));
+            getDialog().getWindow().setLayout(getResources().getDimensionPixelSize(R.dimen.leaderboard_vertical_size),
+                    getResources().getDimensionPixelSize(R.dimen.leaderboard_horizontal_size));
         }
     }
 
     private void setDialogText(){
         high_scores_textView.setText(Utilities.getHighScores(getContext()));
-        average_score_textView.setText(Utilities.getAvgScore(getContext())+"");
+        average_score_textView.setText(Utilities.getAvgScore(getContext()));
         total_games_num_textView.setText(Utilities.getTotalGameNum(getContext())+"");
+        high_scores_textView.invalidate();
+        average_score_textView.invalidate();
+        total_games_num_textView.invalidate();
     }
 }
