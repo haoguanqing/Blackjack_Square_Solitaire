@@ -22,11 +22,12 @@
                 android:paddingTop="@dimen/activity_horizontal_margin"
                 android:gravity="center"
                 style="?android:textAppearanceLarge"
+                android:layout_marginBottom="@dimen/fragment_half_margin"
                 android:text="@string/high_score_title"
                 android:textStyle="bold" />
 
             <TextView style="?android:textAppearanceMedium"
-                android:lineSpacingMultiplier="1.2"
+                android:lineSpacingMultiplier="1.3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/high_scores"
@@ -44,7 +45,7 @@
             <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                style="?android:textAppearanceLarge"
+                style="?android:textAppearanceMedium"
                 android:text="@string/average_score_title"
                 android:textStyle="bold" />
 
@@ -65,7 +66,7 @@
             <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                style="?android:textAppearanceLarge"
+                style="?android:textAppearanceMedium"
                 android:text="@string/total_game_title"
                 android:textStyle="bold" />
 
@@ -82,7 +83,7 @@
         android:layout_height="wrap_content"
         android:text="@string/button_reset_statistics"
         android:layout_marginTop="@dimen/fragment_half_margin"
-        android:layout_gravity="center"
+        android:layout_gravity="bottom|center_horizontal"
         android:id="@+id/reset_button" />
 
 </LinearLayout>

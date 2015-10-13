@@ -48,10 +48,13 @@ public class GameActivityFragment extends Fragment {
     private Card dealCard;
     private int score;
 
+    private int tableFilled;
+
     public GameActivityFragment() {
         deck = new Deck();
         table = new Table();
         score = 0;
+        tableFilled = 0;
     }
 
     @Override
@@ -89,7 +92,11 @@ public class GameActivityFragment extends Fragment {
         Log.e(LOG_TAG, "update score");
         holder.scoreTextView.setText(getString(R.string.score_text, score + ""));
         holder.scoreTextView.invalidate();
-        if(table.isFull()) {
+        if(tableFilled==16) {
+            tableFilled = 0;
+            holder.deal.setOnTouchListener(null);
+            Utilities.checkAndSetHighScore(getContext(), score);
+            Utilities.setGameNumAndAvgScore(getContext(), score);
             Uri screenshot = storeFile(getScreenShot(
                     getActivity().getWindow().getDecorView().findViewById(android.R.id.content)));
             popUpResultWindow(screenshot);
@@ -154,12 +161,11 @@ public class GameActivityFragment extends Fragment {
                         //update table
                         table.placeCard(imageView.getId(), dealCard);
                         //update score
+                        ++tableFilled;
                         updateScore();
                         //deal a new card
                         holder.dealCard();
-                        Log.e(LOG_TAG, "ACTION DROP true");
                     }else{
-                        Log.e(LOG_TAG, "ACTION DROP false");
                         return false;
                     }
                     break;

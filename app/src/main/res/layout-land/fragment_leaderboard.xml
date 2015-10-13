@@ -82,7 +82,7 @@
         android:layout_height="wrap_content"
         android:text="@string/button_reset_statistics"
         android:layout_marginTop="@dimen/fragment_half_margin"
-        android:layout_gravity="center"
+        android:layout_gravity="bottom|center_horizontal"
         android:id="@+id/reset_button" />
 
 </LinearLayout>
