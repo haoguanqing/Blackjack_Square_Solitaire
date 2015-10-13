@@ -37,7 +37,7 @@
         <![CDATA[<br /><br />
         <i><b>SCORING</b></i><br />
         Scoring for the various Blackjack hands is based on how close the player comes to 21 in each hand. Face cards count as 10. Aces can count as either 1 or 11.<br /><br />
-        Each of the nine hands are scored as follows:<br />
+        Each of the nine hands are scored as follows:<br /><br />
 
         <i>10 Points:</i> Blackjack! A Blackjack is two cards that total 21. A King, Queen, Jack, or 10 combined with an Ace<br />
         <i>7 Points :</i> All cards in hand that total 21<br />
@@ -56,8 +56,10 @@
         <i><b>ABOUT</b></i><br /><br />
         Blackjack Square is a SoliTaire! Network original created by Warren Schwader.<br />
         <br />
-        The author Guanqing Hao created this application based on the Blackjack Square game rules.
-        Should you find any bug, please feel free to contact Guanqing at besttth6@gmail.com.
+        The author created this application based on the Blackjack Square game rules.
+        Should you find any bug or have any advice, please feel free to contact the author at besttth6@gmail.com.<br />
+        <br />
+        Enjoy!
         ]]>
     </string>
 

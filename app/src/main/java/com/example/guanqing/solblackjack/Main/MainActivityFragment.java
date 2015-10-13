@@ -28,10 +28,10 @@ public class MainActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         final ImageView imageView = (ImageView) rootView.findViewById(R.id.app_title_imageView);
-        ImageButton startButton = (ImageButton) rootView.findViewById(R.id.startButton);
-        ImageButton helpButton = (ImageButton) rootView.findViewById(R.id.helpButton);
-        ImageButton storeButton = (ImageButton) rootView.findViewById(R.id.storeButton);
-        ImageButton leaderboardButton = (ImageButton) rootView.findViewById(R.id.leaderBoardsButton);
+        final ImageButton startButton = (ImageButton) rootView.findViewById(R.id.startButton);
+        final ImageButton helpButton = (ImageButton) rootView.findViewById(R.id.helpButton);
+        final ImageButton storeButton = (ImageButton) rootView.findViewById(R.id.storeButton);
+        final ImageButton leaderboardButton = (ImageButton) rootView.findViewById(R.id.leaderBoardsButton);
         Log.e("HGQ_DEBUG", "main activity fragment on create view");
 
         imageView.setOnTouchListener(new View.OnTouchListener() {
@@ -40,44 +40,74 @@ public class MainActivityFragment extends Fragment {
                 if (event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
                     imageView.setImageResource(R.drawable.title_pressed);
                     return true;
-                }
-                else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
-                    imageView.setImageResource(R.drawable.title2);
+                } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
+                    imageView.setImageResource(R.drawable.title);
                     return true;
                 }
                 return false;
             }
         });
 
-        startButton.setOnClickListener(new View.OnClickListener() {
+        startButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), GameActivity.class);
-                startActivity(intent);
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
+                    startButton.setImageResource(R.drawable.start_pressed);
+                    return true;
+                } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
+                    startButton.setImageResource(R.drawable.start);
+                    Intent intent = new Intent(getActivity(), GameActivity.class);
+                    startActivity(intent);
+                    return true;
+                }
+                return false;
             }
         });
 
-        helpButton.setOnClickListener(new View.OnClickListener() {
+        helpButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), HelpActivity.class);
-                startActivity(intent);
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
+                    helpButton.setImageResource(R.drawable.help_pressed);
+                    return true;
+                } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
+                    helpButton.setImageResource(R.drawable.help);
+                    Intent intent = new Intent(getActivity(), HelpActivity.class);
+                    startActivity(intent);
+                    return true;
+                }
+                return false;
             }
         });
 
-        storeButton.setOnClickListener(new View.OnClickListener() {
+        storeButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
+                    storeButton.setImageResource(R.drawable.setting_pressed);
+                    return true;
+                } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
+                    storeButton.setImageResource(R.drawable.setting);
+                    return true;
+                }
+                return false;
             }
         });
 
-        leaderboardButton.setOnClickListener(new View.OnClickListener() {
+        leaderboardButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                LeaderboardFragment fragment = new LeaderboardFragment();
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                fragment.show(fm, "Dialog");
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
+                    leaderboardButton.setImageResource(R.drawable.leaderboard_pressed);
+                    return true;
+                } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
+                    leaderboardButton.setImageResource(R.drawable.leaderboard);
+                    LeaderboardFragment fragment = new LeaderboardFragment();
+                    FragmentManager fm = getActivity().getSupportFragmentManager();
+                    fragment.show(fm, "Dialog");
+                    return true;
+                }
+                return false;
             }
         });
 
