@@ -67,4 +67,10 @@
     <string name="share_from">分享到</string>
     <string name="app_not_install">请首先安装<xliff:g id="app_name">%s</xliff:g>的应用！</string>
 
+    <!-- LEADER BOARD -->
+    <string name="high_score_title">最高得分</string>
+    <string name="average_score_title">平均得分</string>
+    <string name="total_game_title">游戏数</string>
+
+    <string name="button_reset_statistics">重置统计数据</string>
 </resources>

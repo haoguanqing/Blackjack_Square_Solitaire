@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -48,13 +49,10 @@ public class GameActivityFragment extends Fragment {
     private Card dealCard;
     private int score;
 
-    private int tableFilled;
-
     public GameActivityFragment() {
         deck = new Deck();
         table = new Table();
         score = 0;
-        tableFilled = 0;
     }
 
     @Override
@@ -92,14 +90,15 @@ public class GameActivityFragment extends Fragment {
         Log.e(LOG_TAG, "update score");
         holder.scoreTextView.setText(getString(R.string.score_text, score + ""));
         holder.scoreTextView.invalidate();
-        if(tableFilled==16) {
-            tableFilled = 0;
-            holder.deal.setOnTouchListener(null);
+        if(table.isFull()) {
+/*            holder.deal.setOnTouchListener(null);
             Utilities.checkAndSetHighScore(getContext(), score);
             Utilities.setGameNumAndAvgScore(getContext(), score);
-            Uri screenshot = storeFile(getScreenShot(
+            Uri screenshot = saveFile(getScreenShot(
                     getActivity().getWindow().getDecorView().findViewById(android.R.id.content)));
-            popUpResultWindow(screenshot);
+            popUpResultWindow(screenshot);*/
+            CacheScreenShot task = new CacheScreenShot();
+            task.execute(getActivity().getWindow().getDecorView().findViewById(android.R.id.content));
         }
     }
 
@@ -109,15 +108,7 @@ public class GameActivityFragment extends Fragment {
         fragment.show(fm, "Dialog");
     }
 
-    public Bitmap getScreenShot(View view) {
-        View screenView = view.getRootView();
-        screenView.setDrawingCacheEnabled(true);
-        Bitmap bitmap = Bitmap.createBitmap(screenView.getDrawingCache());
-        screenView.setDrawingCacheEnabled(false);
-        return bitmap;
-    }
-
-    public Uri storeFile(Bitmap bm){
+    private Uri saveFile(Bitmap bm){
         try {
             File file = new File(getContext().getExternalCacheDir()+"/screenshot.png");
             FileOutputStream fOut = new FileOutputStream(file);
@@ -129,6 +120,38 @@ public class GameActivityFragment extends Fragment {
             e.printStackTrace();
             Log.v(LOG_TAG, "store file failed!");
             return null;
+        }
+    }
+
+    private Bitmap getScreenShot(View view) {
+        View screenView = view.getRootView();
+        screenView.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(screenView.getDrawingCache());
+        screenView.setDrawingCacheEnabled(false);
+        return bitmap;
+    }
+
+    private class CacheScreenShot extends AsyncTask<View, Void, Void>{
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            holder.deal.setOnTouchListener(null);
+        }
+
+        @Override
+        protected Void doInBackground(View... params) {
+            View view = params[0];
+            Uri screenshot = saveFile(getScreenShot(view));
+            popUpResultWindow(screenshot);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            Utilities.checkAndSetHighScore(getContext(), score);
+            Utilities.setGameNumAndAvgScore(getContext(), score);
         }
     }
 
@@ -161,7 +184,6 @@ public class GameActivityFragment extends Fragment {
                         //update table
                         table.placeCard(imageView.getId(), dealCard);
                         //update score
-                        ++tableFilled;
                         updateScore();
                         //deal a new card
                         holder.dealCard();
@@ -260,7 +282,7 @@ public class GameActivityFragment extends Fragment {
                     table14, table15, table16,
                     discard1, discard2, discard3, discard4};
             scoreTextView.setText(getString(R.string.score_text, "0"));
-            setImageResources();
+            //setImageResources();
             setListeners();
             setTags();
         }

@@ -33,7 +33,7 @@
                 android:id="@+id/deal_imageView"
                 android:padding="@dimen/fragment_inner_padding"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/c13s" />
+                android:src="@drawable/ce" />
 
         </LinearLayout>
 
@@ -70,7 +70,7 @@
                         android:layout_column="0"
                         android:padding="@dimen/fragment_inner_padding"
                         android:id="@+id/discard1"
-                        android:src="@drawable/c1c"/>
+                        android:src="@drawable/ce"/>
 
                     <ImageView
                         android:layout_width="@dimen/card_width"
@@ -79,7 +79,7 @@
                         android:layout_column="1"
                         android:padding="@dimen/fragment_inner_padding"
                         android:id="@+id/discard2"
-                        android:src="@drawable/c2d"/>
+                        android:src="@drawable/ce"/>
 
                     <ImageView
                         android:layout_width="@dimen/card_width"
@@ -88,7 +88,7 @@
                         android:layout_column="2"
                         android:padding="@dimen/fragment_inner_padding"
                         android:id="@+id/discard3"
-                        android:src="@drawable/c3s"
+                        android:src="@drawable/ce"
                         />
 
                     <ImageView
@@ -98,7 +98,7 @@
                         android:layout_column="3"
                         android:padding="@dimen/fragment_inner_padding"
                         android:id="@+id/discard4"
-                        android:src="@drawable/c4h"
+                        android:src="@drawable/ce"
                         />
 
                 </GridLayout>
@@ -131,7 +131,7 @@
             android:layout_column="0"
             android:padding="@dimen/fragment_inner_padding"
             android:id="@+id/hand1"
-            android:src="@drawable/c1h"
+            android:src="@drawable/ce"
             />
         <ImageView
             android:layout_width="@dimen/card_width"
@@ -140,7 +140,7 @@
             android:layout_column="1"
             android:padding="@dimen/fragment_inner_padding"
             android:id="@+id/hand2"
-            android:src="@drawable/c2h"
+            android:src="@drawable/ce"
             />
         <ImageView
             android:layout_width="@dimen/card_width"
@@ -149,7 +149,7 @@
             android:layout_column="2"
             android:padding="@dimen/fragment_inner_padding"
             android:id="@+id/hand3"
-            android:src="@drawable/c3h"
+            android:src="@drawable/ce"
             />
         <ImageView
             android:layout_width="@dimen/card_width"
@@ -158,7 +158,7 @@
             android:layout_column="3"
             android:padding="@dimen/fragment_inner_padding"
             android:id="@+id/hand4"
-            android:src="@drawable/c4h"
+            android:src="@drawable/ce"
             />
         <ImageView
             android:layout_width="@dimen/card_width"
@@ -167,7 +167,7 @@
             android:layout_column="4"
             android:padding="@dimen/fragment_inner_padding"
             android:id="@+id/hand5"
-            android:src="@drawable/c5h"
+            android:src="@drawable/ce"
             />
         <ImageView
             android:layout_width="@dimen/card_width"
@@ -176,7 +176,7 @@
             android:layout_column="0"
             android:padding="@dimen/fragment_inner_padding"
             android:id="@+id/hand6"
-            android:src="@drawable/c6h"
+            android:src="@drawable/ce"
             />
         <ImageView
             android:layout_width="@dimen/card_width"
@@ -185,7 +185,7 @@
             android:layout_column="1"
             android:padding="@dimen/fragment_inner_padding"
             android:id="@+id/hand7"
-            android:src="@drawable/c7h"
+            android:src="@drawable/ce"
             />
         <ImageView
             android:layout_width="@dimen/card_width"
@@ -194,7 +194,7 @@
             android:layout_column="2"
             android:padding="@dimen/fragment_inner_padding"
             android:id="@+id/hand8"
-            android:src="@drawable/c8h"
+            android:src="@drawable/ce"
             />
         <ImageView
             android:layout_width="@dimen/card_width"
@@ -203,7 +203,7 @@
             android:layout_column="3"
             android:padding="@dimen/fragment_inner_padding"
             android:id="@+id/hand9"
-            android:src="@drawable/c9h"
+            android:src="@drawable/ce"
             />
         <ImageView
             android:layout_width="@dimen/card_width"
@@ -212,7 +212,7 @@
             android:layout_column="4"
             android:padding="@dimen/fragment_inner_padding"
             android:id="@+id/hand10"
-            android:src="@drawable/c10h"
+            android:src="@drawable/ce"
             />
         <ImageView
             android:layout_width="@dimen/card_width"
@@ -221,7 +221,7 @@
             android:layout_column="1"
             android:padding="@dimen/fragment_inner_padding"
             android:id="@+id/hand11"
-            android:src="@drawable/c11h"
+            android:src="@drawable/ce"
             />
         <ImageView
             android:layout_width="@dimen/card_width"
@@ -230,7 +230,7 @@
             android:layout_column="2"
             android:padding="@dimen/fragment_inner_padding"
             android:id="@+id/hand12"
-            android:src="@drawable/c12h"
+            android:src="@drawable/ce"
             />
         <ImageView
             android:layout_width="@dimen/card_width"
@@ -239,7 +239,7 @@
             android:layout_column="3"
             android:padding="@dimen/fragment_inner_padding"
             android:id="@+id/hand13"
-            android:src="@drawable/c13h"
+            android:src="@drawable/ce"
             />
         <ImageView
             android:layout_width="@dimen/card_width"
@@ -248,7 +248,7 @@
             android:layout_column="1"
             android:padding="@dimen/fragment_inner_padding"
             android:id="@+id/hand14"
-            android:src="@drawable/c1s"
+            android:src="@drawable/ce"
             />
         <ImageView
             android:layout_width="@dimen/card_width"
@@ -257,7 +257,7 @@
             android:layout_column="2"
             android:padding="@dimen/fragment_inner_padding"
             android:id="@+id/hand15"
-            android:src="@drawable/c2s"
+            android:src="@drawable/ce"
             />
         <ImageView
             android:layout_width="@dimen/card_width"
@@ -266,7 +266,7 @@
             android:layout_column="3"
             android:padding="@dimen/fragment_inner_padding"
             android:id="@+id/hand16"
-            android:src="@drawable/c3s"
+            android:src="@drawable/ce"
             />
 
 

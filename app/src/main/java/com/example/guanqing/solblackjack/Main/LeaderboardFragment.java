@@ -62,10 +62,12 @@ public class LeaderboardFragment extends DialogFragment {
             return;
         if (getResources().getConfiguration().orientation==1){
             //get dimensions from dimens.xml so as to write them in dp and retrieve them in px
+            //ORIENTATION_PORTRAIT
             getDialog().getWindow().setLayout(getResources().getDimensionPixelSize(R.dimen.leaderboard_horizontal_size),
                     getResources().getDimensionPixelSize(R.dimen.leaderboard_vertical_size));
         }else{
-            getDialog().getWindow().setLayout(getResources().getDimensionPixelSize(R.dimen.leaderboard_vertical_size),
+            //ORIENTATION_LANDSCAPE
+            getDialog().getWindow().setLayout(getResources().getDimensionPixelSize(R.dimen.dialog_vertical_size),
                     getResources().getDimensionPixelSize(R.dimen.leaderboard_horizontal_size));
         }
     }
