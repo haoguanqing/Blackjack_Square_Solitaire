@@ -39,17 +39,17 @@
         Scoring for the various Blackjack hands is based on how close the player comes to 21 in each hand. Face cards count as 10. Aces can count as either 1 or 11.<br /><br />
         Each of the nine hands are scored as follows:<br />
 
-    <i>10 Points:</i> Blackjack! A Blackjack is two cards that total 21. A King, Queen, Jack, or 10 combined with an Ace<br />
-    <i>7 Points :</i> All cards in hand that total 21<br />
-    <i>5 Points :</i> Total 20<br />
-    <i>4 Points :</i> Total 19<br />
-    <i>3 Points :</i> Total 18<br />
-    <i>2 Points :</i> Total 17<br />
-    <i>1 Point  :</i> Total 16 or less<br />
-    <i>0 Point  :</i> Bust! Total 22 or more<br /><br />
-    The scores from all nine hands are added together to arrive at the final score.<br />
-    ]]>
-</string>
+        <i>10 Points:</i> Blackjack! A Blackjack is two cards that total 21. A King, Queen, Jack, or 10 combined with an Ace<br />
+        <i>7 Points :</i> All cards in hand that total 21<br />
+        <i>5 Points :</i> Total 20<br />
+        <i>4 Points :</i> Total 19<br />
+        <i>3 Points :</i> Total 18<br />
+        <i>2 Points :</i> Total 17<br />
+        <i>1 Point  :</i> Total 16 or less<br />
+        <i>0 Point  :</i> Bust! Total 22 or more<br /><br />
+        The scores from all nine hands are added together to arrive at the final score.<br />
+        ]]>
+    </string>
 
     <string name="help_text3">
         <![CDATA[<br /><br />
@@ -60,8 +60,10 @@
         Should you find any bug, please feel free to contact Guanqing at besttth6@gmail.com.
         ]]>
     </string>
+
     <string name="title_activity_game" translatable="false">GameActivity</string>
 
+    <!-- SHARE DIALOG -->
     <string name="dialog_text">Congratulations! Your final score is <xliff:g id="score">%s</xliff:g>!</string>
     <string name="low_score_dialog_text">Your final score is <xliff:g id="score">%s</xliff:g>.</string>
     <string name="new_high_score_dialog_text">Congratulations! You achieved a new high score: <xliff:g id="score">%s</xliff:g></string>
@@ -72,5 +74,12 @@
     <string name="app_not_install"><xliff:g id="app_name">%s</xliff:g> App is not installed on this device.</string>
 
     <string name="facebook_app_id" translatable = "false">867541743343194</string>
+
+    <!-- LEADER BOARD -->
+    <string name="high_score_title">HIGH SCORES</string>
+    <string name="average_score_title">AVERAGE SCORE</string>
+    <string name="total_game_title">TOTAL GAMES</string>
+
+    <string name="button_reset_statistics">RESET STATISTICS</string>
 
 </resources>

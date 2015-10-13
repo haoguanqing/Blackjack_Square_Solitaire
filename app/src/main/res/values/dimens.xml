@@ -19,4 +19,7 @@
     <dimen name="dialog_horizontal_size">280dp</dimen>
     <dimen name="dialog_vertical_size">320dp</dimen>
 
+    <dimen name="leaderboard_scrollview_height">200dp</dimen>
+    <dimen name="leaderboard_scrollview_width">150dp</dimen>
+
 </resources>
