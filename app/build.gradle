@@ -1,14 +1,6 @@
 apply plugin: 'com.android.application'
 
 android {
-    signingConfigs {
-        config {
-            keyAlias 'Guanqing\'s Android Key'
-            keyPassword 'besttth3'
-            storeFile file('S:/Tools/signkey_guanqing.jks')
-            storePassword 'besttth3'
-        }
-    }
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
     defaultConfig {
