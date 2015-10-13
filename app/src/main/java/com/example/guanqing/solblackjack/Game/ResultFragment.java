@@ -35,7 +35,7 @@ public class ResultFragment extends DialogFragment {
     @Bind(R.id.dialog_textview) TextView dialog_textView;
     @Bind(R.id.fb_share_imageview) ImageView fb_share_imageview;
     @Bind(R.id.tweet_imageview) ImageView tweet_imageview;
-    @Bind(R.id.wechat_imageview) ImageView wechat_imageview;
+    @Bind(R.id.share_imageview) ImageView wechat_imageview;
     @Bind(R.id.restart_button) Button restart_button;
     @Bind(R.id.back_button) Button back_button;
 

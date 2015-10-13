@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="leaderboard_horizontal_size">290dp</dimen>
+    <dimen name="leaderboard_vertical_size">340dp</dimen>
+    <dimen name="leaderboard_scrollview_protrait">220dp</dimen>
+    <dimen name="leaderboard_scrollview_land">175dp</dimen>
 </resources>

@@ -5,11 +5,11 @@
     android:padding="@dimen/activity_horizontal_margin"
     tools:context="com.example.guanqing.solblackjack.Main.LeaderboardFragment"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/leaderboard_scrollview_height"
+        android:layout_height="@dimen/leaderboard_scrollview_protrait"
         android:id="@+id/leaderboard_scrollView" >
 
         <LinearLayout

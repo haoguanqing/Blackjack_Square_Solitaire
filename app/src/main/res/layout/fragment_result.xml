@@ -42,8 +42,8 @@
             android:layout_height="@dimen/share_icon_size"
             android:padding="@dimen/fragment_inner_padding"
             android:background="@null"
-            android:id="@+id/wechat_imageview"
-            android:src="@drawable/wechat_icon" />
+            android:id="@+id/share_imageview"
+            android:src="@drawable/share_icon" />
 
     </LinearLayout>
 
