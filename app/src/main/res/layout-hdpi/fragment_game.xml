@@ -56,8 +56,9 @@
                     android:layout_height="match_parent"
                     android:textSize="@dimen/table_font_size"
                     android:text="@string/discards_text"
+                    android:typeface="monospace"
                     android:id="@+id/discards_textView"
-                    android:textStyle="bold|italic" />
+                    android:textStyle="bold" />
 
                 <GridLayout
                     android:layout_width="wrap_content"
@@ -114,11 +115,12 @@
         android:layout_height="wrap_content"
         android:textSize="@dimen/table_font_size"
         android:layout_marginTop="@dimen/fragment_half_margin"
-        android:layout_marginLeft="@dimen/fragment_half_margin"
-        android:layout_marginStart="@dimen/fragment_half_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:typeface="monospace"
         android:text="@string/table_text"
         android:id="@+id/table_textView"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold" />
 
     <GridLayout
         android:layout_width="wrap_content"
