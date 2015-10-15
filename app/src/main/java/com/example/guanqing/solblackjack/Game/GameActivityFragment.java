@@ -10,6 +10,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
@@ -233,6 +234,12 @@ public class GameActivityFragment extends Fragment {
             int width, height;
             width = getView().getWidth();
             height = getView().getHeight();
+            //handle error displaying issue for HDPI screens
+            int density = getResources().getDisplayMetrics().densityDpi;
+            if(density== DisplayMetrics.DENSITY_HIGH){
+                width = (int) Math.round(1.08*width);
+                height = (int) Math.round(1.08*height);
+            }
             shadow.setBounds(0, 0, width, height);
             size.set(width, height);
             touch.set(width / 2, height / 2);
