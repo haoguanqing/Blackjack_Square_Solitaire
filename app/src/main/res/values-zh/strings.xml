@@ -37,17 +37,19 @@
         游戏的得分规则基于每一行（列）牌的点数的总和。点数越接近21点，分数就越高。J,Q,K计算为10分，A可以计算为1分或者11分。<br /><br />
         具体得分规则如下：<br />
 
-    <i>10分：</i> Blackjack! 两张牌的点数和为21点，即一张J,Q,K和一张A的组合<br />
-    <i>7分：</i> 一排或一列的点数和为21点<br />
-    <i>5分：</i> 总点数为20点<br />
-    <i>4分：</i> 总点数为19点<br />
-    <i>3分：</i> 总点数为18点<br />
-    <i>2分：</i> 总点数为17点<br />
-    <i>1分：</i> 总点数小于或等于16点<br />
-    <i>0分：</i> Bust! 点数大于22点会爆掉<br /><br />
-    最终的分数为9排（列）分数的总和。<br />
-    ]]>
-</string>
+        ------------------------------------<br />
+        <i>10分：</i> Blackjack! 两张牌的点数和为21点，即一张J,Q,K和一张A的组合<br />
+        <i>7分：</i> 一排或一列的点数和为21点<br />
+        <i>5分：</i> 总点数为20点<br />
+        <i>4分：</i> 总点数为19点<br />
+        <i>3分：</i> 总点数为18点<br />
+        <i>2分：</i> 总点数为17点<br />
+        <i>1分：</i> 总点数小于或等于16点<br />
+        <i>0分：</i> Bust! 点数大于22点会爆掉<br /><br />
+        ------------------------------------<br />
+        最终的分数为9排（列）分数的总和。<br />
+        ]]>
+    </string>
 
     <string name="help_text3">
         <![CDATA[<br /><br />
@@ -73,4 +75,11 @@
     <string name="total_game_title">游戏数</string>
 
     <string name="button_reset_statistics">重置统计数据</string>
+
+    <!-- SETTINGS -->
+    <string name="choose_background_setting_text"><b>选择主题</b></string>
+    <string name="setting_ic_green_text">经典赌桌</string>
+    <string name="setting_ic_blue_text">扑克赌桌</string>
+    <string name="setting_ic_wood_text">木质桌面</string>
+    <string name="setting_button_text">确定</string>
 </resources>

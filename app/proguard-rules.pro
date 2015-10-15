@@ -16,12 +16,14 @@
 #   public *;
 #}
 
+-keep class butterknife.** { *; }
 -dontwarn butterknife.internal.**
+-keep class **$$ViewBinder { *; }
 
--keep class **$$ViewInjector { *; }
+-keepclasseswithmembernames class * {
+    @butterknife.* <fields>;
+}
 
--keepnames class * { @butterknife.InjectView *;}
-
--dontwarn butterknife.Views$InjectViewProcessor
-
--dontwarn com.gc.materialdesign.views.**
+-keepclasseswithmembernames class * {
+    @butterknife.* <methods>;
+}

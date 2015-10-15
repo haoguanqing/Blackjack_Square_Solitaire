@@ -18,10 +18,15 @@
     <dimen name="share_icon_size">48dp</dimen>
     <dimen name="dialog_horizontal_size">280dp</dimen>
     <dimen name="dialog_vertical_size">320dp</dimen>
+    <dimen name="result_frag_mid">52dp</dimen>
 
     <dimen name="leaderboard_horizontal_size">270dp</dimen>
     <dimen name="leaderboard_vertical_size">340dp</dimen>
     <dimen name="leaderboard_scrollview_protrait">270dp</dimen>
     <dimen name="leaderboard_scrollview_land">215dp</dimen>
+
+    <dimen name="setting_button_height">60dp</dimen>
+    <dimen name="setting_dialog_vertical_size">340dp</dimen>
+    <dimen name="setting_dialog_horizontal_size">270dp</dimen>
 
 </resources>

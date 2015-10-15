@@ -3,4 +3,6 @@
     <dimen name="fragment_inner_padding">1dp</dimen>
     <dimen name="fragment_inner_margin">1dp</dimen>
 
+    <dimen name="result_frag_mid">40dp</dimen>
+
 </resources>

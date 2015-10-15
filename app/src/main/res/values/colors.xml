@@ -6,8 +6,15 @@
     <color name="color4">#364958</color>
     <color name="help_text_color">#EAEAEA</color>
 
+    <color name="color1_transparent">#40845A6D</color>
+    <color name="color2_transparent">#4055828B</color>
+    <color name="color3_transparent">#403B6064</color>
+
     <color name="actionbar_color">#30000000</color>
 
     <color name="red">#ffff0000</color>
+
+    <color name="text_black">#b0000000</color>
+    <color name="text_white">#b0ffffff</color>
 
 </resources>

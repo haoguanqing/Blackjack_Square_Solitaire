@@ -27,6 +27,11 @@ public class Utilities {
     public static String TOTAL_SCORE_KEY = "TOTAL_SCORE_KEY";
     public static String TOTAL_GAME_NUMBER_KEY = "TOTAL_GAME_NUMBER_KEY";
 
+    public static String SETTING_THEME_KEY = "SETTING_THEME_KEY";
+    public static int THEME_GREEN = 0;
+    public static int THEME_BLUE = 1;
+    public static int THEME_WOOD = 2;
+
     public Utilities(){}
 
     /**
@@ -46,8 +51,9 @@ public class Utilities {
         return -1;
     }
 
-
+    //--------------------------------------------------------------------------
     //------------------Set High Scores in the Leader Board---------------------
+    //--------------------------------------------------------------------------
     public static boolean checkAndSetHighScore(Context context, int newScore){
         SharedPreferences pref = context.getSharedPreferences(GAME_PREFS, 0);
         SharedPreferences.Editor editor = pref.edit();
@@ -57,18 +63,16 @@ public class Utilities {
         Log.e(LOG_TAG, "high scores: "+highscores);
         if(highscores.equals("")){
             Log.e(LOG_TAG, "is empty");
-            editor.putString(HIGH_SCORE_KEY, newScoreInfo);
-            editor.apply();
+            editor.putString(HIGH_SCORE_KEY, newScoreInfo).apply();
             return true;
         }
 
         Log.e(LOG_TAG, "not empty");
         String[] scores = highscores.split("/");
         Log.e(LOG_TAG, "scores last one: "+scores[scores.length-1]);
-        if(getScore(scores[scores.length-1])<newScore){
+        if(scores.length<6 || getScore(scores[scores.length-1])<newScore){
             String newHighScores = getNewHighScores(scores, newScoreInfo);
-            editor.putString(HIGH_SCORE_KEY, newHighScores);
-            editor.apply();
+            editor.putString(HIGH_SCORE_KEY, newHighScores).apply();
             return true;
         }else{
             return false;
@@ -132,7 +136,7 @@ public class Utilities {
         }
 
         String[] scores = highscores.split("/");
-        if (scores.length==6){
+        if (scores.length<6){
             return true;
         }else if(getScore(scores[scores.length-1])<newScore){
             return true;
@@ -174,6 +178,24 @@ public class Utilities {
         SharedPreferences pref = context.getSharedPreferences(GAME_PREFS, 0);
         pref.edit().clear().apply();
     }
+
+
+
+
+    //---------------------------------------------------------------------
+    //---------------- set theme in setting -------------------------------
+    //---------------------------------------------------------------------
+    public static void setTheme(Context context, int theme){
+        SharedPreferences pref = context.getSharedPreferences(GAME_PREFS, 0);
+        pref.edit().putInt(SETTING_THEME_KEY, theme).apply();
+    }
+
+    public static int getTheme(Context context){
+        SharedPreferences pref = context.getSharedPreferences(GAME_PREFS, 0);
+        return pref.getInt(SETTING_THEME_KEY, 0);
+    }
+
+
 
 
 
