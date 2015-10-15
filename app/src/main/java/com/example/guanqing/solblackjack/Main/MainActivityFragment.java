@@ -30,7 +30,7 @@ public class MainActivityFragment extends Fragment {
         final ImageView imageView = (ImageView) rootView.findViewById(R.id.app_title_imageView);
         final ImageButton startButton = (ImageButton) rootView.findViewById(R.id.startButton);
         final ImageButton helpButton = (ImageButton) rootView.findViewById(R.id.helpButton);
-        final ImageButton storeButton = (ImageButton) rootView.findViewById(R.id.storeButton);
+        final ImageButton settingButton = (ImageButton) rootView.findViewById(R.id.storeButton);
         final ImageButton leaderboardButton = (ImageButton) rootView.findViewById(R.id.leaderBoardsButton);
         Log.e("HGQ_DEBUG", "main activity fragment on create view");
 
@@ -80,14 +80,17 @@ public class MainActivityFragment extends Fragment {
             }
         });
 
-        storeButton.setOnTouchListener(new View.OnTouchListener() {
+        settingButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
-                    storeButton.setImageResource(R.drawable.setting_pressed);
+                    settingButton.setImageResource(R.drawable.setting_pressed);
                     return true;
                 } else if (event.getAction() == android.view.MotionEvent.ACTION_UP) {
-                    storeButton.setImageResource(R.drawable.setting);
+                    settingButton.setImageResource(R.drawable.setting);
+                    SettingFragment fragment = new SettingFragment();
+                    FragmentManager fm = getActivity().getSupportFragmentManager();
+                    fragment.show(fm, "Dialog");
                     return true;
                 }
                 return false;

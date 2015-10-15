@@ -8,11 +8,18 @@
     <dimen name="fragment_inner_padding">2dp</dimen>
     <dimen name="fragment_inner_margin">2dp</dimen>
 
+    <dimen name="dialog_horizontal_size">282dp</dimen>
+    <dimen name="dialog_vertical_size">324dp</dimen>
+    <dimen name="result_frag_mid">32dp</dimen>
+
     <dimen name="card_width">50dp</dimen>
     <dimen name="card_height">75dp</dimen>
     <dimen name="back_width">54dp</dimen>
     <dimen name="back_height">81dp</dimen>
 
     <dimen name="table_font_size">22sp</dimen>
+
+    <dimen name="setting_dialog_vertical_size">340dp</dimen>
+    <dimen name="setting_dialog_horizontal_size">270dp</dimen>
 
 </resources>

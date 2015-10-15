@@ -169,7 +169,8 @@ public class GameActivityFragment extends Fragment {
                 case DragEvent.ACTION_DRAG_STARTED:
                     break;
                 case DragEvent.ACTION_DRAG_ENTERED:
-                    imageView.setColorFilter(Color.parseColor("#8C8CA240"));
+                    //imageView.setColorFilter(Color.parseColor("#8C8CA240"));
+                    imageView.setColorFilter(Color.parseColor("#8Ca7ad44"));
                     imageView.invalidate();
                     break;
                 case DragEvent.ACTION_DRAG_EXITED:
@@ -282,6 +283,20 @@ public class GameActivityFragment extends Fragment {
 
         public ViewHolder(View view) {
             ButterKnife.bind(this, view);
+            int drawableResId = 0;
+            switch (Utilities.getTheme(getContext())){
+                case 1:
+                    drawableResId = R.drawable.blue_table_withcards;
+                    break;
+                case 2:
+                    drawableResId = R.drawable.wood_table;
+                    break;
+                default:
+                    drawableResId = R.drawable.poker_table_withcards;
+                    break;
+            }
+            view.setBackgroundDrawable(getResources().getDrawable(drawableResId));
+
             viewsList = new ImageView[]{
                     table1, table2, table3, table4, table5,
                     table6, table7, table8, table9, table10,
@@ -289,7 +304,6 @@ public class GameActivityFragment extends Fragment {
                     table14, table15, table16,
                     discard1, discard2, discard3, discard4};
             scoreTextView.setText(getString(R.string.score_text, "0"));
-            //setImageResources();
             setListeners();
             setTags();
         }
@@ -297,6 +311,20 @@ public class GameActivityFragment extends Fragment {
         //another constructor for recreating the whole table
         public ViewHolder(View view, int currentScore, Card dealcard, Table table) {
             ButterKnife.bind(this, view);
+            int drawableResId = 0;
+            switch (Utilities.getTheme(getContext())){
+                case 1:
+                    drawableResId = R.drawable.blue_table_withcards;
+                    break;
+                case 2:
+                    drawableResId = R.drawable.wood_table;
+                    break;
+                default:
+                    drawableResId = R.drawable.poker_table_withcards;
+                    break;
+            }
+            view.setBackgroundDrawable(getResources().getDrawable(drawableResId));
+
             viewsList = new ImageView[]{
                     table1, table2, table3, table4, table5,
                     table6, table7, table8, table9, table10,

@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:padding="@dimen/activity_vertical_margin"
-    android:background="@drawable/table_background_red"
+    android:id="@+id/game_frag_container"
+    android:background="@drawable/poker_table_withcards"
     android:layout_gravity="center_horizontal"
     tools:context="com.example.guanqing.solblackjack.Game.GameActivityFragment">
 

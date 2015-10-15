@@ -6,10 +6,17 @@
     <dimen name="fragment_double_margin">26dp</dimen>
     <dimen name="fragment_half_margin">7dp</dimen>
 
+    <dimen name="dialog_horizontal_size">280dp</dimen>
+    <dimen name="dialog_vertical_size">280dp</dimen>
+    <dimen name="result_frag_mid">40dp</dimen>
+
     <dimen name="card_width">46dp</dimen>
     <dimen name="card_height">69dp</dimen>
     <dimen name="back_width">51dp</dimen>
     <dimen name="back_height">75dp</dimen>
 
     <dimen name="table_font_size">17sp</dimen>
+    <dimen name="setting_dialog_vertical_size">320dp</dimen>
+    <dimen name="setting_dialog_horizontal_size">260dp</dimen>
+
 </resources>

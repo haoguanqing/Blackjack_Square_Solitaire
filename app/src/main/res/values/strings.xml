@@ -66,25 +66,29 @@
     <string name="title_activity_game" translatable="false">GameActivity</string>
 
     <!-- SHARE DIALOG -->
-    <string name="dialog_text">Congratulations! Your final score is <xliff:g id="score">%s</xliff:g>!</string>
-    <string name="low_score_dialog_text">Your final score is <xliff:g id="score">%s</xliff:g>.</string>
-    <string name="new_high_score_dialog_text">Congratulations! You achieved a new high score: <xliff:g id="score">%s</xliff:g></string>
+    <string name="dialog_text">Congratulations! Your final score is <b><xliff:g id="score">%s</xliff:g></b>!</string>
+    <string name="low_score_dialog_text">Your final score is <b><xliff:g id="score">%s</xliff:g></b>.</string>
+    <string name="new_high_score_dialog_text">Congratulations! You achieved a new high score: <b><xliff:g id="score">%s</xliff:g></b></string>
     <string name="restart">NEW GAME</string>
     <string name="back">BACK</string>
-    <string name="share_content">I just scored <xliff:g id="score">%s</xliff:g> points in the game #BlackjackSquare !</string>
+    <string name="share_content">I just scored <b><xliff:g id="score">%s</xliff:g></b> points in the game #BlackjackSquare !</string>
     <string name="share_from">Share from</string>
     <string name="app_not_install"><xliff:g id="app_name">%s</xliff:g> App is not installed on this device.</string>
 
     <string name="facebook_app_id" translatable = "false">867541743343194</string>
 
     <!-- LEADER BOARD -->
-    <string name="high_score_title">HIGH SCORES</string>
+    <string name="high_score_title"><b>HIGH SCORES</b></string>
     <string name="average_score_title">AVERAGE SCORE</string>
     <string name="total_game_title">TOTAL GAMES</string>
 
     <string name="button_reset_statistics">RESET STATISTICS</string>
 
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- SETTINGS -->
+    <string name="choose_background_setting_text"><b>CHOOSE A THEME</b></string>
+    <string name="setting_ic_green_text">Classic Casino</string>
+    <string name="setting_ic_blue_text">Poker Table</string>
+    <string name="setting_ic_wood_text">Wood</string>
+    <string name="setting_button_text">APPLY</string>
 
 </resources>
