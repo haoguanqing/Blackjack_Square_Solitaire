@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:padding="@dimen/activity_vertical_margin"
-    android:background="@drawable/table_background_normal1"
+    android:background="@drawable/poker_table_withcards"
     android:layout_gravity="center_horizontal"
     tools:context="com.example.guanqing.solblackjack.Game.GameActivityFragment">
 
@@ -23,7 +23,7 @@
             android:layout_gravity="start">
 
             <ImageView
-                android:layout_width="@dimen/card_width"
+                android:layout_width="@dimen/back_width"
                 android:layout_height="@dimen/card_height"
                 android:padding="@dimen/fragment_inner_padding"
                 android:layout_gravity="center_vertical"
