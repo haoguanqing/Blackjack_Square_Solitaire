@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/activity_horizontal_margin"
-    android:background="@color/color3_transparent"
+    android:background="@drawable/metal_table"
     tools:context="com.example.guanqing.solblackjack.Main.SettingFragment">
 
     <ScrollView
@@ -14,13 +14,14 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_marginBottom="@dimen/activity_horizontal_margin"
-                android:textColor="@android:color/black"
+                android:layout_marginTop="@dimen/fragment_half_margin"
+                android:layout_marginBottom="@dimen/fragment_half_margin"
+                android:textColor="@color/text_white"
                 android:text="@string/choose_background_setting_text" />
 
             <RadioGroup
@@ -35,7 +36,7 @@
                     android:text="@string/setting_ic_green_text"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:background="@drawable/setting_green_ic"
-                    android:textColor="@color/text_black"
+                    android:textColor="@color/text_white"
                     android:id="@+id/set_green_radioButton"
                     android:checked="true"/>
 
@@ -44,7 +45,7 @@
                     android:layout_height="@dimen/setting_button_height"
                     android:text="@string/setting_ic_blue_text"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/text_black"
+                    android:textColor="@color/text_white"
                     android:background="@drawable/setting_blue_ic"
                     android:id="@+id/set_blue_radioButton" />
 
@@ -53,7 +54,7 @@
                     android:layout_height="@dimen/setting_button_height"
                     android:text="@string/setting_ic_wood_text"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/text_black"
+                    android:textColor="@color/text_white"
                     android:background="@drawable/setting_wood_ic"
                     android:id="@+id/set_wood_radioButton" />
             </RadioGroup>

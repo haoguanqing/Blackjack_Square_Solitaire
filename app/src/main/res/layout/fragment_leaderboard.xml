@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="@dimen/activity_horizontal_margin"
-    android:background="@color/color1_transparent"
+    android:background="@drawable/metal_table"
     tools:context="com.example.guanqing.solblackjack.Main.LeaderboardFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -22,6 +22,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/activity_horizontal_margin"
                 android:gravity="center"
+                android:textColor="@color/text_white"
                 style="?android:textAppearanceLarge"
                 android:layout_marginBottom="@dimen/fragment_half_margin"
                 android:text="@string/high_score_title"
@@ -32,6 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/high_scores"
+                android:textColor="@color/text_white2"
                 android:gravity="center"
                 android:text="@string/high_score_title" />
 
@@ -48,12 +50,15 @@
                 android:gravity="center"
                 style="?android:textAppearanceMedium"
                 android:text="@string/average_score_title"
+                android:textColor="@color/text_white"
                 android:textStyle="bold" />
 
             <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/average_score"
                 android:gravity="center"
+                style="?android:textAppearanceMedium"
+                android:textColor="@color/text_white2"
                 android:text="@string/average_score_title" />
 
 
@@ -69,12 +74,15 @@
                 android:gravity="center"
                 style="?android:textAppearanceMedium"
                 android:text="@string/total_game_title"
+                android:textColor="@color/text_white"
                 android:textStyle="bold" />
 
             <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/total_games_num"
                 android:gravity="center"
+                style="?android:textAppearanceMedium"
+                android:textColor="@color/text_white2"
                 android:text="@string/total_game_title" />
         </LinearLayout>
     </ScrollView>
