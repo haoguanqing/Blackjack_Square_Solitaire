@@ -69,6 +69,10 @@ public class SettingFragment extends DialogFragment {
                         break;
                 }
                 getDialog().dismiss();
+/*                Intent intent = new Intent(getActivity(), MainActivity.class);
+                //set flag to kill the activities on top
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);*/
 
             }
         });

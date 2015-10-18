@@ -92,12 +92,6 @@ public class GameActivityFragment extends Fragment {
         holder.scoreTextView.setText(getString(R.string.score_text, score + ""));
         holder.scoreTextView.invalidate();
         if(table.isFull()) {
-/*            holder.deal.setOnTouchListener(null);
-            Utilities.checkAndSetHighScore(getContext(), score);
-            Utilities.setGameNumAndAvgScore(getContext(), score);
-            Uri screenshot = saveFile(getScreenShot(
-                    getActivity().getWindow().getDecorView().findViewById(android.R.id.content)));
-            popUpResultWindow(screenshot);*/
             CacheScreenShot task = new CacheScreenShot();
             task.execute(getActivity().getWindow().getDecorView().findViewById(android.R.id.content));
         }
@@ -132,6 +126,7 @@ public class GameActivityFragment extends Fragment {
         return bitmap;
     }
 
+    //Custom AsyncTask class
     private class CacheScreenShot extends AsyncTask<View, Void, Void>{
 
         @Override
@@ -278,24 +273,37 @@ public class GameActivityFragment extends Fragment {
         @Bind(R.id.hand14) ImageView table14;
         @Bind(R.id.hand15) ImageView table15;
         @Bind(R.id.hand16) ImageView table16;
+        @Bind(R.id.discards_textView) TextView discards_textView;
+        @Bind(R.id.table_textView) TextView table_textView;
 
         ImageView[] viewsList;
 
         public ViewHolder(View view) {
             ButterKnife.bind(this, view);
             int drawableResId = 0;
+            int color = 0;
             switch (Utilities.getTheme(getContext())){
                 case 1:
-                    drawableResId = R.drawable.blue_table_withcards;
+                    drawableResId = R.drawable.blue;
+                    color = getResources().getColor(R.color.text_white);
                     break;
                 case 2:
                     drawableResId = R.drawable.wood_table;
+                    color = getResources().getColor(R.color.text_black);
+                    break;
+                case 3:
+                    drawableResId = R.drawable.metal_table;
+                    color = getResources().getColor(R.color.text_white);
                     break;
                 default:
-                    drawableResId = R.drawable.poker_table_withcards;
+                    drawableResId = R.drawable.green;
+                    color = getResources().getColor(R.color.text_white);
                     break;
             }
             view.setBackgroundDrawable(getResources().getDrawable(drawableResId));
+            scoreTextView.setTextColor(color);
+/*            discards_textView.setTextColor(color);
+            table_textView.setTextColor(color);*/
 
             viewsList = new ImageView[]{
                     table1, table2, table3, table4, table5,
@@ -312,18 +320,27 @@ public class GameActivityFragment extends Fragment {
         public ViewHolder(View view, int currentScore, Card dealcard, Table table) {
             ButterKnife.bind(this, view);
             int drawableResId = 0;
+            int color = 0;
             switch (Utilities.getTheme(getContext())){
                 case 1:
-                    drawableResId = R.drawable.blue_table_withcards;
+                    drawableResId = R.drawable.blue;
+                    color = getResources().getColor(R.color.text_white);
                     break;
                 case 2:
                     drawableResId = R.drawable.wood_table;
+                    color = getResources().getColor(R.color.text_black);
+                    break;
+                case 3:
+                    drawableResId = R.drawable.metal_table;
+                    color = getResources().getColor(R.color.text_white);
                     break;
                 default:
-                    drawableResId = R.drawable.poker_table_withcards;
+                    drawableResId = R.drawable.green;
+                    color = getResources().getColor(R.color.text_white);
                     break;
             }
             view.setBackgroundDrawable(getResources().getDrawable(drawableResId));
+            scoreTextView.setTextColor(color);
 
             viewsList = new ImageView[]{
                     table1, table2, table3, table4, table5,

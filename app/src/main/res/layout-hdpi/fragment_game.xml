@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:padding="@dimen/activity_vertical_margin"
     android:id="@+id/game_frag_container"
-    android:background="@drawable/poker_table_withcards"
+    android:background="@drawable/green"
     tools:context="com.example.guanqing.solblackjack.Game.GameActivityFragment">
 
     <LinearLayout
@@ -57,6 +57,7 @@
                     android:textSize="@dimen/table_font_size"
                     android:text="@string/discards_text"
                     android:typeface="monospace"
+                    android:textColor="@color/text_black"
                     android:id="@+id/discards_textView"
                     android:textStyle="bold" />
 
@@ -120,6 +121,7 @@
         android:typeface="monospace"
         android:text="@string/table_text"
         android:id="@+id/table_textView"
+        android:textColor="@color/text_black"
         android:textStyle="bold" />
 
     <GridLayout
@@ -283,8 +285,9 @@
         android:text="@string/score_text"
         android:id="@+id/score_textView"
         android:layout_gravity="bottom|end"
-        android:layout_marginRight="@dimen/fragment_half_margin"
-        android:layout_marginEnd="@dimen/fragment_half_margin"
+        android:layout_marginTop="@dimen/fragment_half_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:textStyle="bold"
         android:typeface="serif" />
 

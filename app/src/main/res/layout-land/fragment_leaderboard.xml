@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="@dimen/activity_horizontal_margin"
+    android:background="@drawable/light_grey"
     tools:context="com.example.guanqing.solblackjack.Main.LeaderboardFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -21,6 +22,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/activity_horizontal_margin"
                 android:gravity="center"
+                android:textColor="@color/text_white"
                 style="?android:textAppearanceLarge"
                 android:text="@string/high_score_title"
                 android:textStyle="bold" />
@@ -29,6 +31,7 @@
                 android:lineSpacingMultiplier="1.2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/text_white2"
                 android:id="@+id/high_scores"
                 android:gravity="center"
                 android:text="@string/high_score_title" />
@@ -44,14 +47,17 @@
             <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                style="?android:textAppearanceLarge"
+                android:textColor="@color/text_white"
+                style="?android:textAppearanceMedium"
                 android:text="@string/average_score_title"
                 android:textStyle="bold" />
 
             <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/average_score"
+                style="?android:textAppearanceMedium"
                 android:gravity="center"
+                android:textColor="@color/text_white2"
                 android:text="@string/average_score_title" />
 
 
@@ -65,13 +71,16 @@
             <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                style="?android:textAppearanceLarge"
+                android:textColor="@color/text_white"
+                style="?android:textAppearanceMedium"
                 android:text="@string/total_game_title"
                 android:textStyle="bold" />
 
             <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/total_games_num"
+                android:textColor="@color/text_white2"
+                style="?android:textAppearanceMedium"
                 android:gravity="center"
                 android:text="@string/total_game_title" />
         </LinearLayout>
