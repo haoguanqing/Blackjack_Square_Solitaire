@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
     <string name="app_name">矩阵21点</string>
+    <string name="version">v1.0</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">设置</string>
     <string name="title_activity_help">帮助</string>
@@ -54,7 +55,7 @@
     <string name="help_text3">
         <![CDATA[<br /><br />
         <i><b>关于</b></i><br /><br />
-        游戏<矩阵21点>是一个由Warren Schwader原创的纸牌游戏。<br />
+        矩阵21点(Blackjack Square Solitaire)是一个由Warren Schwader原创的纸牌游戏。<br />
         <br />
         作者在原有游戏规则的基础上加以优化制作了本游戏。如果发现错误，或者对本游戏有什么建议，请发送邮件到besttth6@gmail.com。<br />
         <br />
@@ -75,7 +76,7 @@
     <string name="high_score_title">最高得分</string>
     <string name="average_score_title">平均得分</string>
     <string name="total_game_title">游戏数</string>
-
+    <string name="no_record">无记录</string>
     <string name="button_reset_statistics">重置统计数据</string>
 
     <!-- SETTINGS -->
@@ -83,5 +84,6 @@
     <string name="setting_ic_green_text">经典赌桌</string>
     <string name="setting_ic_blue_text">扑克赌桌</string>
     <string name="setting_ic_wood_text">木质桌面</string>
+    <string name="setting_ic_metal_text">金属质感</string>
     <string name="setting_button_text">确定</string>
 </resources>

@@ -5,7 +5,7 @@
     android:orientation="horizontal"
     android:padding="@dimen/activity_vertical_margin"
     android:id="@+id/game_frag_container"
-    android:background="@drawable/poker_table_withcards"
+    android:background="@drawable/green"
     android:layout_gravity="center_horizontal"
     tools:context="com.example.guanqing.solblackjack.Game.GameActivityFragment">
 
@@ -57,6 +57,7 @@
                     android:layout_height="match_parent"
                     android:textSize="22sp"
                     android:text="Discards"
+                    android:textColor = "@color/text_black"
                     android:id="@+id/discards_textView"
                     android:textStyle="bold|italic" />
 
@@ -117,6 +118,7 @@
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:textSize="@dimen/table_font_size"
         android:text="@string/table_text"
+        android:textColor = "@color/text_black"
         android:id="@+id/table_textView"
         android:textStyle="bold|italic" />
 

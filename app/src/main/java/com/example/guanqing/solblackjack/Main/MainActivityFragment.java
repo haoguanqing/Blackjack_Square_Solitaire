@@ -34,6 +34,23 @@ public class MainActivityFragment extends Fragment {
         final ImageButton leaderboardButton = (ImageButton) rootView.findViewById(R.id.leaderBoardsButton);
         Log.e("HGQ_DEBUG", "main activity fragment on create view");
 
+/*        int drawableResId = 0;
+        switch (Utilities.getTheme(getContext())){
+            case 1:
+                drawableResId = R.drawable.blue_table_withcards;
+                break;
+            case 2:
+                drawableResId = R.drawable.wood_table;
+                break;
+            case 3:
+                drawableResId = R.drawable.metal_table;
+                break;
+            default:
+                drawableResId = R.drawable.poker_table_withcards;
+                break;
+        }
+        rootView.setBackgroundDrawable(getResources().getDrawable(drawableResId));*/
+
         imageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -116,4 +133,31 @@ public class MainActivityFragment extends Fragment {
 
         return rootView;
     }
+
+/*    @Override
+    public void onResume() {
+        super.onResume();
+        try{
+            View rootView = getActivity().getWindow().getDecorView().getRootView();
+            int drawableResId = 0;
+            switch (Utilities.getTheme(getContext())){
+                case 1:
+                    drawableResId = R.drawable.blue_table_withcards;
+                    break;
+                case 2:
+                    drawableResId = R.drawable.wood_table;
+                    break;
+                case 3:
+                    drawableResId = R.drawable.metal_table;
+                    break;
+                default:
+                    drawableResId = R.drawable.poker_table_withcards;
+                    break;
+            }
+            rootView.setBackgroundDrawable(getResources().getDrawable(drawableResId));
+            rootView.invalidate();
+        } catch (NullPointerException e){
+            e.printStackTrace();
+        }
+    }*/
 }

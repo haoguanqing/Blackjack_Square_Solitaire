@@ -122,7 +122,7 @@ public class Utilities {
         SharedPreferences pref = context.getSharedPreferences(GAME_PREFS, 0);
         String highscores = pref.getString(HIGH_SCORE_KEY, "");
         if (highscores.isEmpty()){
-            return "no record";
+            return context.getResources().getString(R.string.no_record);
         }
         highscores = highscores.replaceAll("/", "\n");
         return highscores;

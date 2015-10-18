@@ -14,7 +14,10 @@
 
     <color name="red">#ffff0000</color>
 
-    <color name="text_black">#b0000000</color>
-    <color name="text_white">#b0ffffff</color>
+    <color name="text_black">#cc000000</color>
+    <color name="text_white">#cdffffff</color>
+    <color name="text_white2">#b0ffffff</color>
+
+    <color name="background_gray">#80ffffff</color>
 
 </resources>
