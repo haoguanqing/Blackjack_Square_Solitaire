@@ -4,9 +4,9 @@ android {
     signingConfigs {
         config {
             keyAlias 'Guanqing\'s Android Key'
-            keyPassword 'besttth3'
+            keyPassword 'mypassword'
             storeFile file('S:/Tools/signkey_guanqing.jks')
-            storePassword 'besttth3'
+            storePassword 'mypassword'
         }
     }
     compileSdkVersion 23
