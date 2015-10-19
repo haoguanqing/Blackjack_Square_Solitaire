@@ -1,4 +1,4 @@
-package com.example.guanqing.solblackjack.Main;
+package com.blackjacksquare.guanqing.solblackjack.Main;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -11,8 +11,8 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.example.guanqing.solblackjack.R;
-import com.example.guanqing.solblackjack.Utility.Utilities;
+import com.blackjacksquare.guanqing.solblackjack.R;
+import com.blackjacksquare.guanqing.solblackjack.Utility.Utilities;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

@@ -6,7 +6,7 @@
     android:padding="@dimen/activity_vertical_margin"
     android:id="@+id/game_frag_container"
     android:background="@drawable/green"
-    tools:context="com.example.guanqing.solblackjack.Game.GameActivityFragment">
+    tools:context="com.blackjacksquare.guanqing.solblackjack.Game.GameActivityFragment">
 
     <LinearLayout
         android:orientation="horizontal"

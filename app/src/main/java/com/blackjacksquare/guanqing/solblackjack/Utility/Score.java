@@ -1,4 +1,4 @@
-package com.example.guanqing.solblackjack.Utility;
+package com.blackjacksquare.guanqing.solblackjack.Utility;
 
 /**
  * Created by Guanqing on 2015/10/13.

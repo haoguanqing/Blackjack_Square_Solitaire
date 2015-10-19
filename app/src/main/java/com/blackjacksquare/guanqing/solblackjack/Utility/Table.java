@@ -1,9 +1,9 @@
-package com.example.guanqing.solblackjack.Utility;
+package com.blackjacksquare.guanqing.solblackjack.Utility;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.example.guanqing.solblackjack.R;
+import com.blackjacksquare.guanqing.solblackjack.R;
 
 import java.util.ArrayList;
 

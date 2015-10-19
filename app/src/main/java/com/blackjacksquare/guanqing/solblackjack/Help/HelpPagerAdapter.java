@@ -1,4 +1,4 @@
-package com.example.guanqing.solblackjack.Help;
+package com.blackjacksquare.guanqing.solblackjack.Help;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

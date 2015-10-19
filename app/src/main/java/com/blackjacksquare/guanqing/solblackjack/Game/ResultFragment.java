@@ -1,4 +1,4 @@
-package com.example.guanqing.solblackjack.Game;
+package com.blackjacksquare.guanqing.solblackjack.Game;
 
 import android.app.Dialog;
 import android.app.Fragment;
@@ -17,9 +17,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.guanqing.solblackjack.Main.MainActivity;
-import com.example.guanqing.solblackjack.R;
-import com.example.guanqing.solblackjack.Utility.Utilities;
+import com.blackjacksquare.guanqing.solblackjack.Main.MainActivity;
+import com.blackjacksquare.guanqing.solblackjack.R;
+import com.blackjacksquare.guanqing.solblackjack.Utility.Utilities;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.guanqing.solblackjack.Utility;
+package com.blackjacksquare.guanqing.solblackjack.Utility;
 
 import android.os.Parcel;
 import android.os.Parcelable;

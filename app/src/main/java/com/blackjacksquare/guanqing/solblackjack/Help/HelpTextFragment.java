@@ -1,4 +1,4 @@
-package com.example.guanqing.solblackjack.Help;
+package com.blackjacksquare.guanqing.solblackjack.Help;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.guanqing.solblackjack.R;
+import com.blackjacksquare.guanqing.solblackjack.R;
 
 public class HelpTextFragment extends android.support.v4.app.Fragment {
     private static final String TEXT_KEY = "TEXT KEY";

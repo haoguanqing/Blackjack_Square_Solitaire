@@ -1,4 +1,4 @@
-package com.example.guanqing.solblackjack.Game;
+package com.blackjacksquare.guanqing.solblackjack.Game;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -20,11 +20,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.guanqing.solblackjack.R;
-import com.example.guanqing.solblackjack.Utility.Card;
-import com.example.guanqing.solblackjack.Utility.Deck;
-import com.example.guanqing.solblackjack.Utility.Table;
-import com.example.guanqing.solblackjack.Utility.Utilities;
+import com.blackjacksquare.guanqing.solblackjack.R;
+import com.blackjacksquare.guanqing.solblackjack.Utility.Card;
+import com.blackjacksquare.guanqing.solblackjack.Utility.Deck;
+import com.blackjacksquare.guanqing.solblackjack.Utility.Table;
+import com.blackjacksquare.guanqing.solblackjack.Utility.Utilities;
 
 import java.io.File;
 import java.io.FileOutputStream;

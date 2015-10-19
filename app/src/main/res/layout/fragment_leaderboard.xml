@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:padding="@dimen/activity_horizontal_margin"
     android:background="@drawable/metal_table"
-    tools:context="com.example.guanqing.solblackjack.Main.LeaderboardFragment"
+    tools:context="com.blackjacksquare.guanqing.solblackjack.Main.LeaderboardFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 

@@ -1,4 +1,4 @@
-package com.example.guanqing.solblackjack;
+package com.blackjacksquare.guanqing.solblackjack;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

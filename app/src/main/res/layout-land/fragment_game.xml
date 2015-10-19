@@ -7,7 +7,7 @@
     android:id="@+id/game_frag_container"
     android:background="@drawable/green"
     android:layout_gravity="center_horizontal"
-    tools:context="com.example.guanqing.solblackjack.Game.GameActivityFragment">
+    tools:context="com.blackjacksquare.guanqing.solblackjack.Game.GameActivityFragment">
 
     <LinearLayout
         android:orientation="vertical"

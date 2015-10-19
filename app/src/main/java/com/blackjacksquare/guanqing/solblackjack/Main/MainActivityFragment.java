@@ -1,4 +1,4 @@
-package com.example.guanqing.solblackjack.Main;
+package com.blackjacksquare.guanqing.solblackjack.Main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,9 +12,9 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import com.example.guanqing.solblackjack.Game.GameActivity;
-import com.example.guanqing.solblackjack.Help.HelpActivity;
-import com.example.guanqing.solblackjack.R;
+import com.blackjacksquare.guanqing.solblackjack.Game.GameActivity;
+import com.blackjacksquare.guanqing.solblackjack.Help.HelpActivity;
+import com.blackjacksquare.guanqing.solblackjack.R;
 
 
 /**

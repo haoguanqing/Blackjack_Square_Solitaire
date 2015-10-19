@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:padding="@dimen/activity_horizontal_margin"
     android:background="@drawable/metal_table"
-    tools:context="com.example.guanqing.solblackjack.Main.SettingFragment">
+    tools:context="com.blackjacksquare.guanqing.solblackjack.Main.SettingFragment">
 
     <ScrollView
         android:layout_width="match_parent"

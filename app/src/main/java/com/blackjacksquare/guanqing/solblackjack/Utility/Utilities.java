@@ -1,10 +1,10 @@
-package com.example.guanqing.solblackjack.Utility;
+package com.blackjacksquare.guanqing.solblackjack.Utility;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import com.example.guanqing.solblackjack.R;
+import com.blackjacksquare.guanqing.solblackjack.R;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

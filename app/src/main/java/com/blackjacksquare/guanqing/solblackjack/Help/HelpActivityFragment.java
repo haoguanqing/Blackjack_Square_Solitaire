@@ -1,4 +1,4 @@
-package com.example.guanqing.solblackjack.Help;
+package com.blackjacksquare.guanqing.solblackjack.Help;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.guanqing.solblackjack.R;
+import com.blackjacksquare.guanqing.solblackjack.R;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -26,7 +26,7 @@ public class HelpActivityFragment extends DialogFragment {
         Log.e("HGQ_DEBUG", "help activity fragment on create view");
         View rootView =  inflater.inflate(R.layout.fragment_help, container, false);
         mPager = (ViewPager) rootView.findViewById(R.id.pager);
-        HelpPagerAdapter mAdapter = new HelpPagerAdapter(getFragmentManager());
+        com.blackjacksquare.guanqing.solblackjack.Help.HelpPagerAdapter mAdapter = new com.blackjacksquare.guanqing.solblackjack.Help.HelpPagerAdapter(getFragmentManager());
         mPager.setAdapter(mAdapter);
         mPager.setPageTransformer(true, new ZoomOutPageTransformer());
         return rootView;

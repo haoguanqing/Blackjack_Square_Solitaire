@@ -1,4 +1,4 @@
-package com.example.guanqing.solblackjack.Help;
+package com.blackjacksquare.guanqing.solblackjack.Help;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.guanqing.solblackjack.R;
+import com.blackjacksquare.guanqing.solblackjack.R;
 
 public class HelpActivity extends ActionBarActivity {
 
