@@ -10,11 +10,10 @@ This game follows the basic rules of the Blackjack Square Solitaire - a card gam
  - Utilized SharedPreferences to save user's high scores, game data and theme preferences
  - Supports multi-resolutions and multi-languages
 
-Link to play store:
-
+***Link to play store:*** 
 [Blackjack Square App!](https://play.google.com/store/apps/details?id=com.blackjacksquare.guanqing.solblackjack.free&hl=en)
 
-Screen shots of the app:
+***Screen shots of the app:***
 
 ![Image of Blackjack_Square](http://i.imgur.com/8NPKVbC.png)
 
