@@ -4,7 +4,7 @@ This game follows the basic rules of the Blackjack Square Solitaire - a card gam
 
 **Highlight Features**
 
- - Custruct game logic with mutiple Activities, Fragments, Dialogs and custom Classes that interact with each other
+ - Custruct game logic with multiple Activities, Fragments, Dialogs and custom Classes that interact with each other
  - Design custom drag/touch listeners, shadow builder, page transformer for better gaming experience
  - Take snapshot on background thread and save as PNG in cache when game finishes, allow user to share game result on social network. 
  - Utilized SharedPreferences to save user's high scores, game data and theme preferences
