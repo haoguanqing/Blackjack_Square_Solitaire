@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.blackjacksquare.guanqing.solblackjack.R;
@@ -21,10 +20,7 @@ public class LeaderboardFragment extends DialogFragment {
     @Bind(R.id.high_scores) TextView high_scores_textView;
     @Bind(R.id.average_score) TextView average_score_textView;
     @Bind(R.id.total_games_num) TextView total_games_num_textView;
-    @Bind(R.id.leaderboard_scrollView) ScrollView leaderboard_scrollView;
     @Bind(R.id.reset_button) Button reset_button;
-
-    public LeaderboardFragment() {}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

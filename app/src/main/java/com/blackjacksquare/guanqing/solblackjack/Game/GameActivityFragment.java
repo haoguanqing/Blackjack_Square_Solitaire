@@ -58,6 +58,7 @@ public class GameActivityFragment extends Fragment {
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
+        // save the game status
         outState.putParcelable(DECK_PARCEL_KEY, deck);
         outState.putParcelable(TABLE_PARCEL_KEY, table);
         outState.putParcelable(DEAL_PARCEL_KEY, dealCard);
@@ -68,6 +69,7 @@ public class GameActivityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         if(savedInstanceState!=null){
+            // retrieve previous game status
             View rootView = inflater.inflate(R.layout.fragment_game, container, false);
             dealCard = savedInstanceState.getParcelable(DEAL_PARCEL_KEY);
             score = savedInstanceState.getInt(SCORE_PARCEL_KEY);
@@ -76,9 +78,9 @@ public class GameActivityFragment extends Fragment {
             holder = new ViewHolder(rootView, score, dealCard, table);
             holder.setListeners();
             savedInstanceState.clear();
-            Log.e(LOG_TAG, "------- reconstruct view -------- " + table.toString());
             return rootView;
         }else {
+            // new game
             View rootView = inflater.inflate(R.layout.fragment_game, container, false);
             holder = new ViewHolder(rootView);
             holder.dealCard();
@@ -88,7 +90,6 @@ public class GameActivityFragment extends Fragment {
 
     private void updateScore(){
         score = table.scoreTable();
-        Log.e(LOG_TAG, "update score");
         holder.scoreTextView.setText(getString(R.string.score_text, score + ""));
         holder.scoreTextView.invalidate();
         if(table.isFull()) {
@@ -97,12 +98,18 @@ public class GameActivityFragment extends Fragment {
         }
     }
 
+    // pop up result dialog
     private void popUpResultWindow(Uri uri){
         ResultFragment fragment = ResultFragment.newInstance(score, uri);
         FragmentManager fm = getActivity().getSupportFragmentManager();
         fragment.show(fm, "Dialog");
     }
 
+    /**
+     * save screenshot to local as png
+     * @param bm
+     * @return image Uri
+     */
     private Uri saveFile(Bitmap bm){
         try {
             File file = new File(getContext().getExternalCacheDir()+"/screenshot.png");
@@ -118,6 +125,11 @@ public class GameActivityFragment extends Fragment {
         }
     }
 
+    /**
+     * capture current screen
+     * @param view
+     * @return bitmap
+     */
     private Bitmap getScreenShot(View view) {
         View screenView = view.getRootView();
         screenView.setDrawingCacheEnabled(true);
@@ -126,7 +138,7 @@ public class GameActivityFragment extends Fragment {
         return bitmap;
     }
 
-    //Custom AsyncTask class
+    // Cache the screenshot and pop up the share dialog
     private class CacheScreenShot extends AsyncTask<View, Void, Void>{
 
         @Override
@@ -155,7 +167,6 @@ public class GameActivityFragment extends Fragment {
     private final class MyDragListener implements View.OnDragListener {
         @Override
         public boolean onDrag(View v, DragEvent event) {
-            int action = event.getAction();
             ImageView imageView = (ImageView) v.findViewWithTag(IMAGEVIEW_TAG);
             if(imageView==null){
                 imageView = (ImageView) v.findViewWithTag(IMAGEVIEW_OCCUPIED_TAG);
@@ -207,7 +218,6 @@ public class GameActivityFragment extends Fragment {
                 view.startDrag(null, new MyDragShadowBuilder(view), view, 0);
                 view.setVisibility(View.INVISIBLE);
                 view.invalidate();
-                Log.e(LOG_TAG, "ACTION DOWN");
             }
             return true;
         }
@@ -250,7 +260,7 @@ public class GameActivityFragment extends Fragment {
     }
 
     //custom view holder class
-    class ViewHolder {
+    protected class ViewHolder {
         @Bind(R.id.score_textView) TextView scoreTextView;
         @Bind(R.id.deal_imageView) ImageView deal;
         @Bind(R.id.discard1) ImageView discard1;
@@ -273,37 +283,17 @@ public class GameActivityFragment extends Fragment {
         @Bind(R.id.hand14) ImageView table14;
         @Bind(R.id.hand15) ImageView table15;
         @Bind(R.id.hand16) ImageView table16;
-        @Bind(R.id.discards_textView) TextView discards_textView;
-        @Bind(R.id.table_textView) TextView table_textView;
 
         ImageView[] viewsList;
 
+        // default constructor
         public ViewHolder(View view) {
             ButterKnife.bind(this, view);
-            int drawableResId = 0;
-            int color = 0;
-            switch (Utilities.getTheme(getContext())){
-                case 1:
-                    drawableResId = R.drawable.blue;
-                    color = getResources().getColor(R.color.text_white);
-                    break;
-                case 2:
-                    drawableResId = R.drawable.wood_table;
-                    color = getResources().getColor(R.color.text_black);
-                    break;
-                case 3:
-                    drawableResId = R.drawable.metal_table;
-                    color = getResources().getColor(R.color.text_white);
-                    break;
-                default:
-                    drawableResId = R.drawable.green;
-                    color = getResources().getColor(R.color.text_white);
-                    break;
-            }
+            int theme = Utilities.getTheme(getContext());
+            int drawableResId = getThemeBackground(theme);
+            int color = getThemeColor(theme);
             view.setBackgroundDrawable(getResources().getDrawable(drawableResId));
             scoreTextView.setTextColor(color);
-/*            discards_textView.setTextColor(color);
-            table_textView.setTextColor(color);*/
 
             viewsList = new ImageView[]{
                     table1, table2, table3, table4, table5,
@@ -316,29 +306,12 @@ public class GameActivityFragment extends Fragment {
             setTags();
         }
 
-        //another constructor for recreating the whole table
+        // constructor for recreating the whole table
         public ViewHolder(View view, int currentScore, Card dealcard, Table table) {
             ButterKnife.bind(this, view);
-            int drawableResId = 0;
-            int color = 0;
-            switch (Utilities.getTheme(getContext())){
-                case 1:
-                    drawableResId = R.drawable.blue;
-                    color = getResources().getColor(R.color.text_white);
-                    break;
-                case 2:
-                    drawableResId = R.drawable.wood_table;
-                    color = getResources().getColor(R.color.text_black);
-                    break;
-                case 3:
-                    drawableResId = R.drawable.metal_table;
-                    color = getResources().getColor(R.color.text_white);
-                    break;
-                default:
-                    drawableResId = R.drawable.green;
-                    color = getResources().getColor(R.color.text_white);
-                    break;
-            }
+            int theme = Utilities.getTheme(getContext());
+            int drawableResId = getThemeBackground(theme);
+            int color = getThemeColor(theme);
             view.setBackgroundDrawable(getResources().getDrawable(drawableResId));
             scoreTextView.setTextColor(color);
 
@@ -388,6 +361,44 @@ public class GameActivityFragment extends Fragment {
             for (ImageView v: viewsList){
                 v.setTag(IMAGEVIEW_TAG);
             }
+        }
+
+        private int getThemeBackground(int theme){
+            int drawableResId;
+            switch (theme){
+                case 1:
+                    drawableResId = R.drawable.blue;
+                    break;
+                case 2:
+                    drawableResId = R.drawable.wood_table;
+                    break;
+                case 3:
+                    drawableResId = R.drawable.metal_table;
+                    break;
+                default:
+                    drawableResId = R.drawable.green;
+                    break;
+            }
+            return drawableResId;
+        }
+
+        private int getThemeColor(int theme){
+            int color;
+            switch (theme){
+                case 1:
+                    color = getResources().getColor(R.color.text_white);
+                    break;
+                case 2:
+                    color = getResources().getColor(R.color.text_black);
+                    break;
+                case 3:
+                    color = getResources().getColor(R.color.text_white);
+                    break;
+                default:
+                    color = getResources().getColor(R.color.text_white);
+                    break;
+            }
+            return color;
         }
     }
 }

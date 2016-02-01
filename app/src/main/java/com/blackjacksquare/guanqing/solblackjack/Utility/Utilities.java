@@ -2,7 +2,6 @@ package com.blackjacksquare.guanqing.solblackjack.Utility;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import com.blackjacksquare.guanqing.solblackjack.R;
 
@@ -58,18 +57,18 @@ public class Utilities {
         SharedPreferences pref = context.getSharedPreferences(GAME_PREFS, 0);
         SharedPreferences.Editor editor = pref.edit();
         String newScoreInfo = getNewScoreString(newScore);
-        Log.e(LOG_TAG, "new score info: "+newScoreInfo);
+        //Log.e(LOG_TAG, "new score info: "+newScoreInfo);
         String highscores = pref.getString(HIGH_SCORE_KEY, "");
-        Log.e(LOG_TAG, "high scores: "+highscores);
+        //Log.e(LOG_TAG, "high scores: "+highscores);
         if(highscores.equals("")){
-            Log.e(LOG_TAG, "is empty");
+            //Log.e(LOG_TAG, "is empty");
             editor.putString(HIGH_SCORE_KEY, newScoreInfo).apply();
             return true;
         }
 
-        Log.e(LOG_TAG, "not empty");
+        //Log.e(LOG_TAG, "not empty");
         String[] scores = highscores.split("/");
-        Log.e(LOG_TAG, "scores last one: "+scores[scores.length-1]);
+        //Log.e(LOG_TAG, "scores last one: "+scores[scores.length-1]);
         if(scores.length<6 || getScore(scores[scores.length-1])<newScore){
             String newHighScores = getNewHighScores(scores, newScoreInfo);
             editor.putString(HIGH_SCORE_KEY, newHighScores).apply();
@@ -92,8 +91,8 @@ public class Utilities {
     }
 
     private static int getScore(String s){
-        Log.e(LOG_TAG, "get score string: "+s);
-        Log.e(LOG_TAG, "s.length: " + s.length());
+        //Log.e(LOG_TAG, "get score string: "+s);
+        //Log.e(LOG_TAG, "s.length: " + s.length());
         return Integer.parseInt(s.substring(s.length() - 2));
     }
 

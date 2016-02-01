@@ -183,12 +183,13 @@ public class ResultFragment extends DialogFragment {
         intent.putExtra(Intent.EXTRA_STREAM, screenshotUri);
         intent.setType("image/*");
 
-        if (application==null){
+        if (application==null || application.length()==0){
+            // share via a chooser
             startActivity(Intent.createChooser(intent, getString(R.string.share_from)));
         }else{
+            //start the specific application to share the game result
             PackageManager packManager = getContext().getPackageManager();
             List<ResolveInfo> resolvedInfoList = packManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-
             boolean resolved = false;
             for (ResolveInfo resolveInfo : resolvedInfoList) {
                 if (resolveInfo.activityInfo.packageName.toLowerCase().startsWith(application)) {
@@ -203,7 +204,7 @@ public class ResultFragment extends DialogFragment {
             if (resolved) {
                 startActivity(intent);
             } else {
-                String s = "";
+                String s;
                 if (application.equals(FACEBOOK)) {
                     s = "Facebook";
                 } else {

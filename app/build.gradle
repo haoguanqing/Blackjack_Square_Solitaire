@@ -1,16 +1,9 @@
 apply plugin: 'com.android.application'
 
 android {
-    signingConfigs {
-        config {
-            keyAlias 'Guanqing\'s Android Key'
-            keyPassword 'besttth3'
-            storeFile file('S:/Tools/signkey_guanqing.jks')
-            storePassword 'besttth3'
-        }
-    }
+
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion "23.0.2"
     defaultConfig {
         applicationId "com.blackjacksquare.guanqing.solblackjack"
         minSdkVersion 14
@@ -22,10 +15,8 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.config
         }
         debug {
-            signingConfig signingConfigs.config
         }
     }
     productFlavors {
@@ -47,6 +38,6 @@ repositories {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.jakewharton:butterknife:7.0.1'
 }

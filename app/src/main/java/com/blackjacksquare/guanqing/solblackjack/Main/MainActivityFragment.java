@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,40 +15,25 @@ import com.blackjacksquare.guanqing.solblackjack.Game.GameActivity;
 import com.blackjacksquare.guanqing.solblackjack.Help.HelpActivity;
 import com.blackjacksquare.guanqing.solblackjack.R;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 
 /**
  * A placeholder fragment containing a simple view.
  */
 public class MainActivityFragment extends Fragment {
-    public MainActivityFragment() {}
+    @Bind(R.id.app_title_imageView) protected ImageView imageView;
+    @Bind(R.id.startButton) protected ImageButton startButton;
+    @Bind(R.id.helpButton) protected ImageButton helpButton;
+    @Bind(R.id.storeButton) protected ImageButton settingButton;
+    @Bind(R.id.leaderBoardsButton) protected ImageButton leaderboardButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-        final ImageView imageView = (ImageView) rootView.findViewById(R.id.app_title_imageView);
-        final ImageButton startButton = (ImageButton) rootView.findViewById(R.id.startButton);
-        final ImageButton helpButton = (ImageButton) rootView.findViewById(R.id.helpButton);
-        final ImageButton settingButton = (ImageButton) rootView.findViewById(R.id.storeButton);
-        final ImageButton leaderboardButton = (ImageButton) rootView.findViewById(R.id.leaderBoardsButton);
-        Log.e("HGQ_DEBUG", "main activity fragment on create view");
-
-/*        int drawableResId = 0;
-        switch (Utilities.getTheme(getContext())){
-            case 1:
-                drawableResId = R.drawable.blue_table_withcards;
-                break;
-            case 2:
-                drawableResId = R.drawable.wood_table;
-                break;
-            case 3:
-                drawableResId = R.drawable.metal_table;
-                break;
-            default:
-                drawableResId = R.drawable.poker_table_withcards;
-                break;
-        }
-        rootView.setBackgroundDrawable(getResources().getDrawable(drawableResId));*/
+        ButterKnife.bind(this, rootView);
 
         imageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -133,31 +117,4 @@ public class MainActivityFragment extends Fragment {
 
         return rootView;
     }
-
-/*    @Override
-    public void onResume() {
-        super.onResume();
-        try{
-            View rootView = getActivity().getWindow().getDecorView().getRootView();
-            int drawableResId = 0;
-            switch (Utilities.getTheme(getContext())){
-                case 1:
-                    drawableResId = R.drawable.blue_table_withcards;
-                    break;
-                case 2:
-                    drawableResId = R.drawable.wood_table;
-                    break;
-                case 3:
-                    drawableResId = R.drawable.metal_table;
-                    break;
-                default:
-                    drawableResId = R.drawable.poker_table_withcards;
-                    break;
-            }
-            rootView.setBackgroundDrawable(getResources().getDrawable(drawableResId));
-            rootView.invalidate();
-        } catch (NullPointerException e){
-            e.printStackTrace();
-        }
-    }*/
 }

@@ -19,13 +19,13 @@ public class Card implements Parcelable {
         return rank;
     }
 
-    public int getValue(){
+    public int getValue()
+    {
         if (rank>10){
             return 10;
         }
         return rank;
     }
-
     public String getSuit() {
         return suit;
     }

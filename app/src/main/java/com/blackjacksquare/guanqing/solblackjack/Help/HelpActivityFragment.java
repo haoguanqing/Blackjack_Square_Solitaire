@@ -14,7 +14,6 @@ import com.blackjacksquare.guanqing.solblackjack.R;
  * A placeholder fragment containing a simple view.
  */
 public class HelpActivityFragment extends DialogFragment {
-    private static final String TEXT_KEY = "TEXT KEY";
     private ViewPager mPager;
 
     public HelpActivityFragment() {
